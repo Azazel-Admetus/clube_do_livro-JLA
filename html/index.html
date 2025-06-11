@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
     <title>Narrify - Versos e Prosa</title>
 </head>
 <body>
@@ -14,15 +15,57 @@
                     <li>
                         <a href="login.html">Login</a>
                     </li>
+                    <span>|</span>
                     <li>
                         <a href="cadastro.html">Cadastro</a>
                     </li>
                 </ul>
             </nav>
         </header>
-        <section></section>
+        <section id="introduction">
+            <h2>Seja muito bem-vindo!</h2>
+            <p>Este é o site oficial do clube do livro da escola Joaquim de Lima Avelino. Por aqui postaremos sobre nossas atividades, feedbacks de livro e muito mais</p>
+            <img src="../img/logo-principal-slogan-transparente.png" alt="Logo do Clube do Livro">
+        </section>
+        <section id="content">
+            <h2>O que você irá encontrar por aqui?</h2>
+            <div id="javascript">
+                <h3></h3>
+                <p></p>
+            </div>
+        </section>
+        <section id="info"></section>
+        <section id="admin"></section>
+        
         <footer></footer>
     </main>
+    <script>
+        const div = document.getElementById('javascript');
+        let conteudos = [];
+        let index = 0;
+
+        fetch('../javascript/index.csv')
+            .then(response => response.text())
+            .then(text => {
+                const linhas = text.trim().split('\n').slice(1);
+                conteudos = linhas.map(linha => {
+                    const [titulo, ...descricaoArr] = linha.split(',');
+                    const descricao = descricaoArr.join(',');
+                    return {titulo: titulo.trim(), descricao: descricao.trim()};
+                });
+                mostrarConteudo();
+                setInterval(mostrarConteudo, 5000);
+            });
+
+        function mostrarConteudo() {
+            if (conteudos.length === 0) return;
+
+            const {titulo, descricao} = conteudos[index];
+            div.innerHTML = `<h3>${titulo}</h3><p>${descricao}</p>`;
+            
+            index = (index + 1) % conteudos.length;
+        }
+    </script>
     
 </body>
 </html>
