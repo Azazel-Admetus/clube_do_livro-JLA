@@ -27,6 +27,12 @@
             
         </footer>
     </main>
-    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('processo');   
+        if(error === "sucesso"){
+            alert("Seja bem-vindo(a)!")
+        }
+    </script>
 </body>
 </html>

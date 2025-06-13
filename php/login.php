@@ -2,10 +2,10 @@
 
 require_once 'conn.php';
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $email = trim($_POST['email']);
+    $senha = trim($_POST['senha']);
 
-    if(!empty($email) && !empty($senha)){
+    if(!empty($email) && !empty($senha) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $stmt = $conn->prepare('SELECT * FROM users WHERE email = :email');
         $stmt->bindParam(':email', $email);
         $stmt->execute();

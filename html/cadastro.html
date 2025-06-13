@@ -28,6 +28,16 @@
         <footer>
             <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
         </footer>
-    
+    </form>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+
+        if (error === 'erro_cadastro') {
+            alert('Ocorreu um erro ao cadastrar, tente novamente mais tarde');
+        } else if (error === 'campos_vazios') {
+            alert('Por favor, preencha corretamente todos os campos');
+        }
+    </script>
 </body>
 </html>

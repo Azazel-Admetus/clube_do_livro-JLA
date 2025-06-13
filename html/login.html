@@ -22,5 +22,16 @@
             <p>Ainda não possui uma conta? Então <a href="cadastro.html">Cadastre-se!</a></p>
         </footer>
     </form>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        if(error === 'crendenciais_invalidas'){
+            alert('Usuário não encontrado ou senha incorreta');
+        } else if (error === 'campos_vazios'){
+            alert('Por favor, preencha corretamente todos os campos');
+        } else if(error === "user_exists"){
+            alert('Usuário já existente. Faça login')
+        }
+    </script>
 </body>
 </html>
