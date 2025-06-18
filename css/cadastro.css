@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto : #000000;
+    --branco : #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +21,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #e8d8c4;
+    background-color:var(--color-primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +29,7 @@ body {
 }
 
 form {
-    background-color: white;
+    background-color:var(--branco);
     padding: 30px 40px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgb(0, 0, 0);
@@ -28,7 +43,7 @@ header {
 }
 
 header h2 {
-    color: #002147;
+    color: var(--color-secondary);
     font-size: 20px;
     margin-bottom: 8px;
 }
@@ -58,14 +73,15 @@ input {
 }
 
 input:focus {
-    border-color: #002147;
+    border-color: var(--azul-escuro)
+    ;
     outline: none;
 }
 
 button {
     margin-top: 20px;
     padding: 12px;
-    background-color: #002147;
+    background-color:var(--azul-escuro);
     color: white;
     border: none;
     border-radius: 6px;
@@ -75,7 +91,7 @@ button {
 }
 
 button:hover {
-    background-color: #004080;
+    background-color: var(--azul-claro);
 }
 
 footer {
@@ -85,7 +101,7 @@ footer {
 }
 
 footer a {
-    color: #002147;
+    color: var(--azul-escuro);
     text-decoration: none;
     font-weight: bold;
 }

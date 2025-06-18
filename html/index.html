@@ -23,22 +23,28 @@
             </nav>
         </header>
         <section id="introduction">
-            <h2 class="titulo">Seja muito bem-vindo!</h2>
-            <p class="texto">Este é o site oficial do clube do livro da escola Joaquim de Lima Avelino. Por aqui postaremos sobre nossas atividades, feedbacks de livro e muito mais</p>
+            <div id="div-intro">
+                <h2 class="titulo">Seja muito bem-vindo!</h2>
+                <p class="texto">Este é o site oficial do clube do livro da escola Joaquim de Lima Avelino. Por aqui postaremos sobre nossas atividades, feedbacks de livro e muito mais</p>
+            </div>
+            
             <img src="../img/logo-principal-slogan-transparente.png" alt="Logo do Clube do Livro">
         </section>
-        <section id="content">
-            <h2 class="titulo">O que você irá encontrar por aqui?</h2>
-            <div id="javascript">
-                <h3 class="titulo"></h3>
-                <p class="texto"></p>
-            </div>
-        </section>
-        <section id="info">
-            <h2 class="titulo">Quem somos nós?</h2>
-            <p class="texto">Criado em 2023, o objetivo do clube é resgatar a cultura da leitura entre os estudantes. De lá para cá, o clube passou por problemas de gestão, e agora com uma nova equipe ele vem sendo reestruturado. A proposta original não mudou e essa nova gestão se compromete em não somente honrar o legado do clube, como trazer inovações tecnológicas, afim de afirmar a posição do clube na escola por muito mais anos. </p>
-            <p class="texto">O clube é formado por alunos do ensino médio. A gestão também é constituída por alunos, eles ocupam a posição de presidente, vice-presidente e líder. O cargo de conselheiro somente poderá ser ocupado por um professor. As mídias do clube são administradas pelos gestores e membros da equipe de marketing da escola. O clube também possui um regimento interno que rege o funcionamento do clube. </p>
-        </section>
+        <div id="main-content">
+            <section id="content">
+                <h2 class="titulo">O que você irá encontrar por aqui?</h2>
+                <div id="javascript">
+                    <h3 class="titulo"></h3>
+                    <p class="texto"></p>
+                </div>
+            </section>
+            <section id="info">
+                <h2 class="titulo">Quem somos nós?</h2>
+                <p class="texto">Criado em 2023, o objetivo do clube é resgatar a cultura da leitura entre os estudantes. De lá para cá, o clube passou por problemas de gestão, e agora com uma nova equipe ele vem sendo reestruturado. A proposta original não mudou e essa nova gestão se compromete em não somente honrar o legado do clube, como trazer inovações tecnológicas, afim de afirmar a posição do clube na escola por muito mais anos. </p>
+                <p class="texto">O clube é formado por alunos do ensino médio. A gestão também é constituída por alunos, eles ocupam a posição de presidente, vice-presidente e líder. O cargo de conselheiro somente poderá ser ocupado por um professor. As mídias do clube são administradas pelos gestores e membros da equipe de marketing NexoFY da escola. O clube também possui um regimento interno que rege o funcionamento do clube. </p>
+            </section>
+        </div>
+
         <section id="admin">
             <h2 class="titulo">Conheça a atual gestão</h2>
             <p class="texto">
@@ -83,11 +89,15 @@
 
         function mostrarConteudo() {
             if (conteudos.length === 0) return;
+            div.style.opacity = 0;
+            setTimeout(() => {
+                const {titulo, descricao} = conteudos[index];
+                div.innerHTML = `<h3>${titulo}</h3><p>${descricao}</p>`;
+                
+                index = (index + 1) % conteudos.length;
+                div.style.opacity = 1;
+            }, 500);
 
-            const {titulo, descricao} = conteudos[index];
-            div.innerHTML = `<h3>${titulo}</h3><p>${descricao}</p>`;
-            
-            index = (index + 1) % conteudos.length;
         }
     </script>
     

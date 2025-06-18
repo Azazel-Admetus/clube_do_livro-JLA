@@ -7,7 +7,12 @@
     --color-secondary: #1c3a57;
     --color-terceira: #dcccb3;
     --color-quarta: #e0e0e0;
+    --preto : #000000;
+    --branco : #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
 }
+
 
 body {
     margin: 0;
@@ -55,3 +60,60 @@ a {
 a:hover {
     text-decoration: underline;
 }
+/* estilizando a introducao do site */
+#introduction{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#div-intro{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+/* estilizando o conteudo do site  */
+#content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+#javascript{
+    border: var(--azul-escuro) solid 1px;
+    width: 300px;
+    height: 200px;
+    padding: 5px;
+    word-break: break-word;
+    white-space: normal;
+    transition: opacity 0.5s ;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+}
+#javascript p{
+    text-align: justify;
+}
+#javascript:hover{
+    box-shadow:1px 0px 0px 1px rgba(0, 0, 0, 0.5);
+}   
+/* estilizando a secao da info */
+#info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    max-width: 500px;
+    max-height: 500px;
+}
+#main-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}   
