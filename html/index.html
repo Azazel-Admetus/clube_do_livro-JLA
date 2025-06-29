@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/index.css?v=1.0">
+    <link rel="stylesheet" href="../css/index.css?v=1.1">
     <title>Narrify - Versos e Prosa</title>
 </head>
 <body>
     <main>
         <header>
-            <h1>NARRIFY
-            </h1>
+            <img src="../img/logo-principal-slogan-transparente.png" alt="Logo do Clube do Livro">
             <nav>
                 <ul>
                     <li>
@@ -28,8 +27,6 @@
                 <h2 class="titulo">Seja muito bem-vindo!</h2>
                 <p class="texto">Este é o site oficial do clube do livro da escola Joaquim de Lima Avelino. Por aqui postaremos sobre nossas atividades, feedbacks de livro e muito mais</p>
             </div>
-            
-            <img src="../img/logo-principal-slogan-transparente.png" alt="Logo do Clube do Livro">
         </section>
         <div id="main-content">
             <section id="content">
@@ -113,7 +110,7 @@
             div.style.opacity = 0;
             setTimeout(() => {
                 const {titulo, descricao} = conteudos[index];
-                div.innerHTML = `<h3>${titulo}</h3><p>${descricao}</p>`;
+                div.innerHTML = `<h3 class="titulo">${titulo}</h3><p class="texto">${descricao}</p>`;
                 
                 index = (index + 1) % conteudos.length;
                 div.style.opacity = 1;

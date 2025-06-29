@@ -15,7 +15,7 @@
 
 
 body {
-    margin: 0;
+    margin: 05;
     padding: 0;
     /* display: flex;
     flex-wrap: wrap; */
@@ -26,12 +26,13 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px 50px;
     align-items: center;
     text-align: center;
     margin: 2%;
+    padding: 0;
     padding-bottom: 0px;
-    border-bottom: #1c3a57 solid 1px;
+    border-bottom: #1c3a57 solid 1px
+
 }
 
 nav ul {
@@ -146,4 +147,17 @@ footer{
 img{
     width: 200px;
     height: 200px;
+    padding: 10px;
+    background-size: cover;
+}
+.titulo{
+    font-family: var(--fontemain);
+    font-weight: 700;
+    font-size: 25px;
+}
+.texto{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: 600;
+    font-size: 20px;
+
 }
