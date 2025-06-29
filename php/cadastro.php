@@ -1,5 +1,4 @@
 <?php 
-
 require_once 'conn.php';
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = trim(strip_tags($_POST['nome']));
