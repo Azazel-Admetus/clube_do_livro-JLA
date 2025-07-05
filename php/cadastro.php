@@ -1,5 +1,6 @@
 <?php 
 require_once 'conn.php';
+session_start();
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = trim(strip_tags($_POST['nome']));
     $nome = mb_substr($nome, 0, 100);
@@ -23,7 +24,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':senha', $senha);
             if ($stmt->execute()){
-                session_start();
                 $_SESSION['username'] = $nome;
                 $_SESSION['email'] = $email;
                 header("Location:../html/home.html?processo=sucesso");
