@@ -12,19 +12,40 @@
             <nav>
                 <ul>
                     <li><a href="home.html">Início</a></li>
-                    <li><a href="logout.php">Sair</a></li>
+                    <li><a href="../php/logout.php">Sair</a></li>
                 </ul>
             </nav>
         </header>
 
         <section>
-            <h2>Informações do Usuário</h2>
-            <!-- Aqui você pode exibir as informações do usuário, como nome, email, etc. -->
-            <p>Nome: [Nome do Usuário]</p>
-            <p>Email: [Email do Usuário]</p>
+            <div>
+                <img id="foto-perfil" src="#">
+            </div>
+            <div>
+                <h2>Nome do Usuário</h2>
+                <p>Email:</p>
+            </div>
         </section>
+        <section>
+            <h2>Livros lidos:</h2>
+            <div id="card-livros">
+                <h3 id="titulo-livro">Título do livro</h3>
+                <img id="imagem-livro" src="#">
+            </div>
+        </section>
+        <section id="config-user">
+            <a href="alterar-username.html">
+                <h4>Altere seu nome de usuário</h4>
+            </a>
+            <a href="#">
+                <h4>Altere sua foto de perfil</h4>
+            </a>
+            <a href="#">
+                <h4>Altere sua senha</h4>
+            </a>
+        </section>
+
         <footer>
-            <p>&copy; 2023 Narrify. Todos os direitos reservados.</p>
         </footer>
     </main>
     

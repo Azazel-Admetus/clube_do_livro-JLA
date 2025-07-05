@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altere seu nome de usuário</title>
+</head>
+<body>
+    <header>
+        <img id="logo-site" src="../img/logo-principal-slogan-transparente.png">
+    </header>
+    <form action="../php/alterar-username.php" method="post">
+        <p>Escolha um novo nome</p>
+        <label for="nome">Nome:</label>
+        <input id="nome" name="nome" required>
+        <button type="submit">Salvar</button>
+    </form>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('insert');
+        if(error == 'True'){
+            alert('Informações alteradas com sucesso!');
+        }else if(error == 'error'){
+            alert("Erro ao tentar alterar as informações. Tente novamente.")
+        }
+    </script>
+</body>
+</html>
