@@ -1,6 +1,6 @@
 <?php
-
 require_once 'conn.php';
+session_start();
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['email']);
     $senha = trim($_POST['senha']);
@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($senha, $user['senha'])) {
-            session_start();
+            session_regenerate_id(true);
             $_SESSION['username'] = $user['nome'];
             $_SESSION['email'] = $user['email'];
             header("Location:../html/home.html?processo=sucesso");
