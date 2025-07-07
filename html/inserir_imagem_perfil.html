@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar imagem de perfil</title>
+</head>
+<body>
+    <header> 
+        <a href="home.html">
+            <img src="../img/logo-principal-slogan-transparente.png">
+        </a>
+    </header>
+    <form action="../php/imagem_perfil.php" method="post">
+        <p>Certifique que sua imagem tenha as extensões: jpg, jpeg ou png.</p>
+        <label for="imagem_usuario">Escolha uma imagem:</label>
+        <input type="file" id="imagem_usuario" name="imagem_usuario" required>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
