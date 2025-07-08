@@ -1,9 +1,10 @@
 <?php
 require "cloud-conn.php";
+require "conn.php";
 session_start();
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     if(isset($_FILES['imagem_usuario'])){
-        $verificar_tipo = ['image/jpeg', 'image/jpg', 'image/png'];
+        $verificar_tipo = ['image/jpeg', 'image/png'];
         $maxsize = 2 * 1024 * 1024;
         $tipo_arquivo = $_FILES['imagem_usuario']['type'];
         $tamanho_arquivo = $_FILES['imagem_usuario']['size'];
@@ -17,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             header('Location:../html/inserir_imagem_perfil.html?error=size');
             exit;
         }
-        if(getimagesize($tmp_arquivo) === false){
+        if(getimagesize($tmp_arquivo) === false){ 
             header('Location:../html/inserir_imagem_perfil.html?error=not_image');
             exit;
         }
@@ -32,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $stmt->bindValue(':url_imagem', $url_imagem);
             $stmt->bindValue(':email', $email);
             if($stmt->execute()){
-                header('Location:../html/inserir_imagem_perfil.html?upload=success&url=' . urlencode($resultado['secure_url']));
+                header('Location:../html/inserir_imagem_perfil.html?upload=success&url=' . urlencode($url_imagem));
                 exit;
             }else{
                 header('Location:../html/inserir_imagem_perfil.html?error=db_update_failed');
