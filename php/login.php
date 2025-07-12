@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             session_regenerate_id(true);
             $_SESSION['username'] = $user['nome'];
             $_SESSION['email'] = $user['email'];
-            header("Location:../html/home.html?processo=sucesso");
+            header("Location:../html/autenticacao.html");
             exit();
         } else {
             header("Location:../html/login.html?error=credenciais_invalidas");
