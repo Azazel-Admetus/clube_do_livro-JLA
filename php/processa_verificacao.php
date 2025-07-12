@@ -3,6 +3,11 @@ require "conn.php";
 session_start();
 $codigo = trim($_POST['codigo']);
 $email = $_SESSION['email_autenticacao'];
+$fluxo = $_SESSION['fluxo_autenticacao'];
+if($fluxo == 'perfil'){
+    header('Location:../html/alterar_senha.html');
+    exit;
+}
 
 $stmt = $conn->prepare("SELECT codigo_verificacao FROM users WHERE email = :email");
 $stmt->bindValue(":email", $email);
