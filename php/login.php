@@ -11,8 +11,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($senha, $user['senha'])) {
+        if ($user && password_verify($senha, $user['senha'])){
             session_regenerate_id(true);
+            $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['nome'];
             $_SESSION['email'] = $user['email'];
             header("Location:redirecionador.php?fluxo=login");
