@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar imagem de perfil</title>
+    <link rel="stylesheet" href="../css/inserir_imagem_perfil.css">
 </head>
+
 <body>
-    <header> 
+    <header>
         <a href="home.html">
-            <img src="../img/logo-principal-slogan-transparente.png">
+            <img id="logo-site" src="../img/logo-secundária-removebg.png" alt="Logo Narrify">
         </a>
     </header>
     <form action="../php/imagem_perfil.php" method="POST" enctype="multipart/form-data">
-        <p>Certifique que sua imagem tenha as extensões: jpg, jpeg ou png.</p>
-        <label for="imagem_usuario">Escolha uma imagem:</label>
-        <input type="file" id="imagem_usuario" name="imagem_usuario" required>
+        <p>Certifique que sua imagem tenha as extensões: <strong>jpg</strong>, <strong>jpeg</strong> ou
+            <strong>png</strong>.
+        </p>
+
+        <label for="imagem_usuario" class="custom-file-label">Escolha uma imagem</label>
+        <input type="file" id="imagem_usuario" name="imagem_usuario" accept=".jpg, .jpeg, .png" required>
+
+        <span id="nome-arquivo">Nenhum arquivo selecionado</span>
+
         <button type="submit">Salvar</button>
     </form>
+    <script>
+        const inputFile = document.getElementById('imagem_usuario');
+        const nomeArquivo = document.getElementById('nome-arquivo');
+
+        inputFile.addEventListener('change', () => {
+            const arquivo = inputFile.files[0];
+            nomeArquivo.textContent = arquivo ? arquivo.name : 'Nenhum arquivo selecionado';
+        });
+    </script>
+
+
 </body>
+
 </html>
