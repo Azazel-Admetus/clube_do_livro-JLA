@@ -13,6 +13,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         header('Location:../html/autenticacao.html?error=invalid_email');
         exit;
     }
+    //vou verificar se o email existe no banco de dados
+    $stmtV = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
+    $stmtV->bindValue(':email', $email);
+    $stmtV->execute();
+    $count = $stmtV->fetchColumn();
+    if($count == 0){
+        header('Location:../html/cadastro.html?error=email_exists');
+        exit;
+    }
+
     $_SESSION['email_autenticacao'] = $email;
     $codigo = rand(100000, 999999);
     $stmt = $conn->prepare("UPDATE users SET codigo_verificacao = :codigo, verificado = 0 WHERE email = :email ");
