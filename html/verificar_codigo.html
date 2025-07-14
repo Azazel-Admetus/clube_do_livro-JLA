@@ -9,8 +9,23 @@
     <form action="../php/processa_verificacao.php" method="POST">
         <label for="codigo">Digite o código enviado:</label>
         <input type="text" name="codigo" id="codigo" required>
+        <p>Não recebeu o código? <a href="#" onclick="reenviarCodigo(); return false;">Reenviar Código</a></p>
         <button type="submit">Verificar</button>
     </form>
-    
+    <script>
+        function reenviarCodigo(){
+            fetch('../php/reenviarCodigo.php', {
+                method:'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data || "Código reenviado! Verifique seu e-mail.");
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert("Ocorreu um erro ao reenviar o código. Tente novamente.");
+            });
+        }
+    </script>
 </body>
 </html>
