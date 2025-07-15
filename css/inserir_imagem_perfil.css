@@ -1,0 +1,130 @@
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto: #000000;
+    --branco: #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fontemain);
+    background-color: var(--azul-escuro);
+    color: var(--preto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Logo */
+header {
+    margin-bottom: 30px;
+}
+
+#logo-site {
+    max-width: 240px;
+    animation: aparecer 0.8s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes aparecer {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#logo-site:hover {
+    transform: scale(1.05);
+}
+
+/* Formulário */
+form {
+    background-color: var(--branco);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form p {
+    font-size: 16px;
+    color: var(--azul-escuro);
+    font-weight: bold;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    color: var(--preto);
+}
+
+/* Esconde o input padrão */
+input[type="file"] {
+    display: none;
+}
+
+/* Estiliza o botão de upload */
+.custom-file-label {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-file-label:hover {
+    background-color: var(--azul-claro);
+}
+
+/* Mostra o nome do arquivo */
+#nome-arquivo {
+    font-size: 14px;
+    color: var(--preto);
+    text-align: center;
+    margin-top: -5px;
+}
+
+
+button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--azul-claro);
+}
