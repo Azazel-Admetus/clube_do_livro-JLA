@@ -11,6 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $autor_livro = trim(strip_tags($_POST['autor']));
     $genero = trim(strip_tags($_POST['genero']));
     $resenha = trim(strip_tags($_POST['resenha']));
+    $sinopse = trim(strip_tags($_POST['sinopse']));
     //pegando o id e email do usário na sessão
     $username = $_SESSION['username'];
     $email = $_SESSION['email'];
@@ -41,8 +42,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'overwrite' => true
             ]);
             $url_imagem = $resultado['secure_url'];
-            $stmt = $conn->prepare("INSERT INTO Livros_resenha (titulo, genero, resenha, url_imagem, autor, autor_livro) VALUES (:titulo, :genero, :resenha, :url_imagem, :autor, :autor_livro)");
+            $stmt = $conn->prepare("INSERT INTO Livros_resenha (titulo, sinopse, genero, resenha, url_imagem, autor, autor_livro) VALUES (:titulo, :genero, :resenha, :url_imagem, :autor, :autor_livro)");
             $stmt->bindValue(':titulo', $titulo);
+            $stmt->bindValue(':sinopse', $sinopse);
             $stmt->bindValue(':genero', $genero);
             $stmt->bindValue(':resenha', $resenha);
             $stmt->bindValue(':url_imagem', $url_imagem);
