@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Narrify | Perfil</title>
+    <link rel="stylesheet" href="../css/perfil.css">
 </head>
+
 <body>
     <main>
         <header>
@@ -17,22 +20,24 @@
             </nav>
         </header>
 
-        <section>
-            <div>
-                <img id="foto-perfil" src="#">
+        <section class="perfil-info">
+            <div class="foto-perfil">
+                <img id="foto-perfil" src="#" alt="Foto do usuário">
             </div>
-            <div>
+            <div class="dados-usuario">
                 <h2>Nome do Usuário</h2>
-                <p>Email:</p>
+                <p>Email: usuario@exemplo.com</p>
             </div>
         </section>
-        <section>
+
+        <section class="livros-lidos">
             <h2>Livros lidos:</h2>
             <div id="card-livros">
                 <h3 id="titulo-livro">Título do livro</h3>
-                <img id="imagem-livro" src="#">
+                <img id="imagem-livro" src="#" alt="Capa do livro">
             </div>
         </section>
+
         <section id="config-user">
             <a href="alterar-username.html">
                 <h4>Altere seu nome de usuário</h4>
@@ -46,8 +51,9 @@
         </section>
 
         <footer>
+            <p>© 2025 Narrify - Clube do Livro</p>
         </footer>
     </main>
-    
 </body>
+
 </html>
