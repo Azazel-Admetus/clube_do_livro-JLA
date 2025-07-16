@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altere seu nome de usuário</title>
+    <link rel="stylesheet" href="../css/alterar_biografia.css">
+</head>
+
+<body>
+    <header>
+        <a href="home.html">
+            <img id="logo-site" src="../img/logo-secundária-removebg.png" alt="Logo Narrify">
+        </a>
+    </header>
+
+    <form action="../php/alterar-bio.php" method="post">
+        <h1>Defina sua Biografia</h1>
+
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" rows="4" cols="5" required></textarea>
+
+        <div class="contador" id="contador">0 / 255</div>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('insert');
+        if (error == 'True') {
+            alert('Informações alteradas com sucesso!');
+        } else if (error == 'error') {
+            alert("Erro ao tentar alterar as informações. Tente novamente.");
+        }
+        const bio = document.getElementById('bio');
+        const contador = document.getElementById('contador');
+        const form = document.querySelector('form');
+        const maxCaracteres = 255;
+
+        bio.addEventListener('input', () => {
+            const caracteresDigitados = bio.value.length;
+            contador.textContent = `${caracteresDigitados} / ${maxCaracteres}`;
+            contador.style.color = caracteresDigitados > maxCaracteres ? 'red' : '#555';
+        });
+
+        form.addEventListener('submit', function (e) {
+            if (bio.value.length > maxCaracteres) {
+                e.preventDefault(); // impede envio
+                alert('O limite máximo é de 255 caracteres.');
+            }
+        });
+
+    // Atualiza contador se a textarea já vier preenchida
+        contador.textContent = `${bio.value.length} / ${maxCaracteres}`;
+    </script>
+</body>
+
+</html>
