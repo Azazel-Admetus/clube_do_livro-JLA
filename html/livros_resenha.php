@@ -1,3 +1,24 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') {
+    header('Location:login.html');
+    exit();
+}
+require_once '../php/conn.php';
+$user_id = $_SESSION['user_id'];
+$stmt = $conn->prepare('SELECT tipo_usuario FROM users WHERE id = :id');
+$stmt->bindValue(':id', $user_id);
+if($stmt->execute()){
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($user && $user['tipo_usuario'] != 'admin') {
+        header('Location:home.html?user=nao_autorizado');
+        exit();
+    }
+}else{
+    die("erro ao identificar usuário");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,7 +32,7 @@
 <body>
     <header>
         <a href="home.html">
-            <img src="../img/logo-principal-slogan-transparente.png" alt="Logo">
+            <img src="../img/logo-secundária-removebg.png" alt="Logo">
         </a>
     </header>
 
