@@ -23,10 +23,34 @@ body {
     background-color: var(--azul-escuro);
     color: var(--preto);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     padding: 20px;
+}
+header {
+    margin-bottom: 30px;
+}
+
+#logo-site {
+    max-width: 240px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: aparecer 0.8s ease-in-out forwards;
+    opacity: 0;
+}
+/* Animação de fade-in */
+@keyframes aparecer {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Formulário */
