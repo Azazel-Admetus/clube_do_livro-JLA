@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1); 
-ini_set('display_startup_errors', 1);
+ini_set('display_startup_errors', );
 error_reporting(E_ALL);
 require_once 'cloud-conn.php';
 require_once 'conn.php';
@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'overwrite' => true
             ]);
             $url_imagem = $resultado['secure_url'];
-            $stmt = $conn->prepare("INSERT INTO Livros_resenha (titulo, sinopse, genero, resenha, url_imagem, autor, autor_livro) VALUES (:titulo, :genero, :resenha, :url_imagem, :autor, :autor_livro)");
+            $stmt = $conn->prepare("INSERT INTO Livros_resenha (titulo, sinopse, genero, resenha, url_imagem, autor, autor_livro) VALUES (:titulo, :sinopse, :genero, :resenha, :url_imagem, :autor, :autor_livro)");
             $stmt->bindValue(':titulo', $titulo);
             $stmt->bindValue(':sinopse', $sinopse);
             $stmt->bindValue(':genero', $genero);

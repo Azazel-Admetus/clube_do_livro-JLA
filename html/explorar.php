@@ -6,7 +6,7 @@ if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') {
 }
 require_once '../php/conn.php';
 $username = $_SESSION['username'];
-$stmt = $conn->prepare("SELECT id, titulo, sinopse FROM Livros_resenha WHERE autor = :username");
+$stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse FROM Livros_resenha WHERE autor = :username");
 $stmt->bindValue(':username', $username);
 if($stmt->execute()){
     $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -23,7 +23,7 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/explorar.css">
+    <link rel="stylesheet" href="../css/explorar.css?v=1.0">
     <title>Explore as resenhas criadas</title>
 </head>
 <body>
@@ -47,6 +47,7 @@ if($stmt->execute()){
                 <?php foreach($resenhas as $resenha): ?>
                     <article class="resenha">
                         <h2 class="titulo"><?= htmlspecialchars($resenha['titulo']);?></h2>
+                        <h6 class="titulo">Autor: <?= htmlspecialchars($resenha['autor_livro']) ?></h6>
                         <p class="descricao"><?= htmlspecialchars($resenha['sinopse']);?></p>
                         <a href="resenhas.php?id=<?= htmlspecialchars($resenha['id']);?>" class="link_resenha">Leia mais</a>
                     </article>

@@ -115,13 +115,24 @@ button{
     color: var(--azul-escuro);
     margin-bottom: 10px;
 }
-
 .descricao {
     font-family: var(--fontemain);
     color: var(--color-secondary);
     font-size: 16px;
+    text-align: justify;
     margin-bottom: 20px;
+    max-height: 4.5em; /* altura aproximada de 3 linhas */
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.4s ease;
 }
+
+
+/* Quando o usuário passa o mouse no card */
+.resenha:hover .descricao {
+    max-height: 500px; /* valor suficiente para expandir o conteúdo todo */
+}
+
 
 .link_resenha {
     font-family: var(--fontemain);
