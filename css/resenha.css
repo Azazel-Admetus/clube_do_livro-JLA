@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #fdfaf6;
+    --preto : #000000;
+    --branco : #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fontemain);
+    background-color: var(--color-quarta);
+    color: var(--preto);
+    padding: 20px;
+}
+
+/* Header principal */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    margin-bottom: 30px;
+    background-color: var(--color-terceira);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border-radius: 12px;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+}
+
+/* Header interno (da resenha) */
+main > header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+    background-color: #f8f1e7;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.info_livro {
+    max-width: 60%;
+}
+
+.titulo {
+    font-family: var(--fontesecond);
+    font-size: 36px;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+
+.genero,
+.autor,
+.data {
+    font-size: 18px;
+    color: var(--color-secondary);
+    margin-bottom: 6px;
+}
+
+.livro_capa img {
+    width: 180px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Conteúdo da resenha */
+.resenha {
+    background-color: var(--branco);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.texto_resenha {
+    font-size: 18px;
+    line-height: 1.8;
+    font-family: var(--fontemain);
+    color: var(--color-secondary);
+}
+
+/* Rodapé com info do usuário */
+footer {
+    background-color: var(--color-secondary);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.foto_usuario {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.nome_usuario {
+    font-family: var(--fontesecond);
+    font-size: 20px;
+    color: var(--color-terceira);
+    margin-bottom: 5px;
+}
+
+.bio {
+    max-width: 600px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--branco);
+}
