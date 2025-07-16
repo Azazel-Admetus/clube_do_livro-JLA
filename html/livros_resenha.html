@@ -1,33 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livros resenha</title>
+    <link rel="stylesheet" href="../css/livros_resenha.css">
 </head>
+
 <body>
     <header>
-        <img src="../img/logo.png" alt="Logo">
+        <img id="logo-site" src="../img/logo.png" alt="Logo Narrify">
     </header>
+
     <main>
         <h1>Resenha de Livros</h1>
         <p>Crie resenhas de livros para postar. Mostre como foi sua leitura e interpretação do livro</p>
+
         <form action="../php/livros_resenha.php" method="post" enctype="multipart/form-data">
             <label for="titulo">Título do Livro:</label>
             <input type="text" id="titulo" name="titulo" required placeholder="Digite o título do livro">
+
             <label for="autor">Autor do Livro:</label>
             <input type="text" id="autor" name="autor" required placeholder="Digite o autor do livro">
+
             <label for="genero">Gênero do Livro:</label>
-            <input type="text" id="genero" name="genero" placeholder="Digite o gênero do livro" required>
+            <input type="text" id="genero" name="genero" required placeholder="Digite o gênero do livro">
+
             <label for="sinopse">Sinopse:</label>
-            <input type="text" id="sinopse" name="sinopse" required placeholder="Escreva uma breve sinopse sobre o livro">
+            <input type="text" id="sinopse" name="sinopse" required placeholder="Escreva uma breve sinopse">
+
             <label for="resenha">Crie sua resenha:</label>
-            <textarea id="resenha" name="resenha" rows="4" cols="50" required placeholder="Escreva sua resenha aqui..."></textarea>
-            <label for="capa">Insira a imagem da capa do livro</label>
-            <input type="file" id="capa" name="capa" required>
+            <textarea id="resenha" name="resenha" rows="5" placeholder="Escreva sua resenha aqui..."
+                required></textarea>
+
+            <label for="capa" class="custom-file-label">Imagem da capa do livro</label>
+            <input type="file" id="capa" name="capa" accept=".jpg, .jpeg, .png" required>
+            <span id="nome-capa">Nenhum arquivo selecionado</span>
+
             <button type="submit">Salvar</button>
         </form>
     </main>
-    
+
+    <script>
+        const capaInput = document.getElementById('capa');
+        const nomeCapa = document.getElementById('nome-capa');
+        capaInput.addEventListener('change', () => {
+            const arquivo = capaInput.files[0];
+            nomeCapa.textContent = arquivo ? arquivo.name : 'Nenhum arquivo selecionado';
+        });
+    </script>
 </body>
+
 </html>
