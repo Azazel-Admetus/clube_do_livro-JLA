@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once "conn.php";
 session_start();
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -9,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $stmt->bindValue(':nome', $nome);
         $stmt->bindValue(':email', $email);
         if($stmt->execute()){
-            header('Location:../html/alterar-username.html?insert=True');
+            header('Location:../html/perfil.php?insert=True');
             exit;
         } else{
             header('Location:../html/alterar-username.html?insert=Error');

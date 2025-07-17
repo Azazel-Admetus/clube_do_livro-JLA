@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $stmt->bindValue(':senha', $senha);
         $stmt->bindValue(':email', $email);
         if($stmt->execute()){
-            header('Location:../html/perfil.html?success=senha_alterada');
+            header('Location:../html/perfil.php?success=senha_alterada');
             exit;
         } else {
             header('Location:../html/alterar_senha.html?error=alterar_senha');
