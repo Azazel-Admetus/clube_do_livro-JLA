@@ -33,8 +33,8 @@ header {
     align-items: center;
     padding: 1%;
     margin-bottom: 30px;
-    background-color: var(--color-terceira);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    /* background-color: var(--color-terceira); */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.2); */
     border-radius: 12px;
 }
 
@@ -96,6 +96,7 @@ main > header {
     line-height: 1.8;
     font-family: var(--fontemain);
     color: var(--color-secondary);
+    text-align: justify;
 }
 
 /* Rodapé com info do usuário */

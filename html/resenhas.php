@@ -14,18 +14,18 @@ if(!$id_resenha) {
     exit();
 }
 require_once '../php/conn.php';
-$username = $_SESSION['username'];
 $stmt = $conn->prepare("SELECT * FROM Livros_resenha WHERE id = :id");
 $stmt->bindValue(':id', $id_resenha);
 if($stmt->execute()){
     $resenhas = $stmt->fetch(PDO::FETCH_ASSOC);
     if(!$resenhas) {
-        $erro = "Nenhuma resenha encontrada para o usuário: $username";
+        $erro = "Nenhuma resenha encontrada. Tente novamente mais tarde.";
         exit();
     }
+    $usuario = $resenhas['autor'];
     //agora vou pegar as informações do usuario
     $stmt2 = $conn->prepare('SELECT biografia, imagem_perfil_url FROM users WHERE nome= :nome');
-    $stmt2->bindValue(':nome', $username);
+    $stmt2->bindValue(':nome', $usuario);
     if($stmt2->execute()){
         $user_info = $stmt2->fetch(PDO::FETCH_ASSOC);
         if(!$user_info) {
@@ -40,7 +40,7 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/resenha.css">
+    <link rel="stylesheet" href="../css/resenha.css?v=1.0">
     <title>Resenhas literárias</title>
 </head>
 <body>
@@ -72,7 +72,7 @@ if($stmt->execute()){
         <footer>
             <div class="info_usuario">
                 <img src="<?= htmlspecialchars($user_info['imagem_perfil_url']);?>" alt="Foto do usuário" class="foto_usuario">
-                <h5 class="nome_usuario">Autor da Resenha: <?= htmlspecialchars($username);?></h5>
+                <h5 class="nome_usuario">Autor da Resenha: <?= htmlspecialchars($usuario);?></h5>
                 <p class="bio">Bio do usuário: <?= htmlspecialchars($user_info['biografia']);?></p>
             </div>
         </footer>
