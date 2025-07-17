@@ -45,7 +45,7 @@ if($stmt->execute()){
 </head>
 <body>
     <header>
-        <a href="home.html">
+        <a href="home.php">
             <img src="../img/logo-principal-slogan-transparente.png" alt="Logo do Clube do Livro" class="logo">
         </a>
     </header>

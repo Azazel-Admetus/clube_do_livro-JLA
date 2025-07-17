@@ -37,7 +37,7 @@ if($stmt->execute()){
             <h1>Perfil do Usuário</h1>
             <nav>
                 <ul>
-                    <li><a href="home.html">Início</a></li>
+                    <li><a href="home.php">Início</a></li>
                     <li><a href="../php/logout.php">Sair</a></li>
                 </ul>
             </nav>

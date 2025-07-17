@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($stmt->execute()){
                 $_SESSION['username'] = $nome;
                 $_SESSION['email'] = $email;
-                header("Location:../html/home.html?processo=sucesso");
+                header("Location:../html/home.php?processo=sucesso");
                 exit();
             } else{
                 header('Location:../html/cadastro.html?error=erro_cadastro');

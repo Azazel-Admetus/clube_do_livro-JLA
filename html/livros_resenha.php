@@ -31,7 +31,7 @@ if($stmt->execute()){
 
 <body>
     <header>
-        <a href="home.html">
+        <a href="home.php">
             <img src="../img/logo-secundária-removebg.png" alt="Logo">
         </a>
     </header>

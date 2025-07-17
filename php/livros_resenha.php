@@ -23,15 +23,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $tmp_arquivo = $_FILES['capa']['tmp_name'];
     //fazendo as verificações
     if(!in_array($tipo_arquivo, $verificar_tipo)){
-            header('Location:../html/livros_resenha.html?error=invalid_type');
+            header('Location:../html/livros_resenha.php?error=invalid_type');
             exit;
         }
         if($tamanho_arquivo > $maxsize){
-            header('Location:../html/livros_resenha.html?error=size');
+            header('Location:../html/livros_resenha.php?error=size');
             exit;
         }
         if(getimagesize($tmp_arquivo) === false){ 
-            header('Location:../html/livros_resenha.html?error=not_image');
+            header('Location:../html/livros_resenha.php?error=not_image');
             exit;
         }
         //bora pôr a mão na massa
@@ -51,10 +51,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $stmt->bindValue(':autor', $username);
             $stmt->bindValue(':autor_livro', $autor_livro);
             if($stmt->execute()){
-                header('Location:../html/livros_resenha.html?insert=success');
+                header('Location:../html/livros_resenha.php?insert=success');
                 exit;
             }else{
-                header('Location:../html/livros_resenha.html?error=db_update_failed');
+                header('Location:../html/livros_resenha.php?error=db_update_failed');
                 exit;
             }
         } catch(Exception $e){

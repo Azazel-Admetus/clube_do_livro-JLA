@@ -1,13 +1,7 @@
 <?php
-session_start();
-if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') {
-    header('Location:login.html');
-    exit();
-}
 require_once '../php/conn.php';
 $username = $_SESSION['username'];
-$stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse FROM Livros_resenha WHERE autor = :username");
-$stmt->bindValue(':username', $username);
+$stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse FROM Livros_resenha");
 if($stmt->execute()){
     $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $erro = '';
@@ -28,7 +22,7 @@ if($stmt->execute()){
 </head>
 <body>
     <header>
-        <a href="home.html">
+        <a href="home.php">
             <img src="../img/logo-principal-slogan-transparente.png" alt="Logo do Clube do Livro" class="logo">
         </a>
         <div class="busca">

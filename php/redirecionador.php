@@ -8,7 +8,7 @@ if(isset($_GET['fluxo'])){
         header('Location:../html/autenticacao.html');
         exit;
     } else {
-        header('Location:../html/home.html?error=fluxo_invalido');
+        header('Location:../html/home.php?error=fluxo_invalido');
         exit;
     }
 }
