@@ -25,9 +25,6 @@ $stmt = $conn->prepare("SELECT id, titulo, url_imagem FROM Livros_resenha WHERE 
 $stmt->bindValue(':username', $username);
 if($stmt->execute()){
     $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if(!$resenhas) {
-        $erro = "Nenhuma resenha encontrada. Tente novamente mais tarde.";
-    }
 } else {
     $erro = "Erro ao executar a consulta de resenhas.";
 }
@@ -69,7 +66,7 @@ if($stmt->execute()){
     
             </div>
         </section>
-
+        <?php if($_SESSION['tipo_usuario'] == 'admin'): ?>
         <section class="livros-lidos">
             <h2>Resenhas feitas:</h2>
             <div class="resenha-slider">
@@ -83,6 +80,7 @@ if($stmt->execute()){
                 <?php endforeach; ?>
             </div>
         </section>
+        <?php endif;?>
         <section id="config-user">
             <a href="alterar-username.html">
                 <h4>Altere seu nome de usuário</h4>
