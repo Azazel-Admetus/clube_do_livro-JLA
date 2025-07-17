@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+/* ---------- Variáveis ---------- */
 :root {
     --fontemain: 'League Spartan', sans-serif;
     --fontesecond: 'Playfair Display', serif;
@@ -7,157 +8,245 @@
     --color-secondary: #1c3a57;
     --color-terceira: #dcccb3;
     --color-quarta: #e0e0e0;
-    --preto : #000000;
-    --branco : #ffffff;
+    --preto: #000000;
+    --branco: #ffffff;
     --azul-escuro: #002147;
     --azul-claro: #004080;
 }
 
-
-body {
-    margin: 05;
+/* ---------- Reset ---------- */
+* {
+    margin: 0;
     padding: 0;
-    /* display: flex;
-    flex-wrap: wrap; */
-    background-color: var(--color-terceira);
+    box-sizing: border-box;
 }
 
+/* ---------- Corpo ---------- */
+body {
+    font-family: var(--fontemain);
+    background-color: var(--color-terceira);
+    color: var(--preto);
+    line-height: 1.6;
+}
+
+/* ---------- Cabeçalho ---------- */
 header {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
-    margin: 2%;
-    padding: 0;
-    padding-bottom: 0px;
-    border-bottom: #1c3a57 solid 1px
+    padding: 20px 5%;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border-bottom: 3px solid var(--color-primary);
+    flex-wrap: wrap;
+}
 
+header img {
+    height: 100px;
+    width: auto;
 }
 
 nav ul {
     display: flex;
-    flex-direction: row;
     gap: 20px;
     list-style: none;
-    padding: 0;
-}
-
-h1 {
-    font-family: var(--fontemain);
-    font-weight: 700;
-    font-style: normal;
-    color: var(--color-secondary);
-    font-size: 40px;
-
+    flex-wrap: wrap;
 }
 
 .link {
-    font-family: var(--fontemain);
     text-decoration: none;
-    color: var(--color-secondary);
-    font-size: 25px;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
 }
 
 .link:hover {
-    text-decoration: underline;
-}
-/* estilizando a introducao do site */
-#introduction{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-#div-intro{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    color: var(--branco);
 }
 
-/* estilizando o conteudo do site  */
-#content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
+/* ---------- Introdução ---------- */
+#introduction {
+    background-color: var(--color-primary);
     text-align: center;
+    padding: 60px 20px;
 }
-#javascript{
-    border: var(--azul-escuro) solid 1px;
-    width: 300px;
-    height: 200px;
-    padding: 5px;
-    word-break: break-word;
-    white-space: normal;
-    transition: opacity 0.5s ;
-    opacity: 1;
-    align-items: center;
-    justify-content: center;
+
+#div-intro {
+    max-width: 800px;
+    margin: 0 auto;
 }
-#javascript p{
-    text-align: justify;
-}
-#javascript:hover{
-    box-shadow:1px 0px 0px 1px rgba(0, 0, 0, 0.5);
-}   
-/* estilizando a secao da info */
-#info{
+
+/* ---------- Conteúdo Principal ---------- */
+#main-content {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: justify;
-    max-width: 500px;
-    max-height: 500px;
-}
-#main-content{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
-}   
-/* estilizando a secao dos admnins */
-#admin{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 50px 5%;
+    background-color: var(--branco);
+    gap: 40px;
 }
-span{
-    font-weight: bold;
+
+#content,
+#info {
+    flex: 1 1 400px;
+    background-color: var(--color-quarta);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
-#admin a{
-    font-family: var(--fontesecond);
+
+#content {
+    max-width: 500px;
+}
+
+#info {
+    max-width: 600px;
+}
+
+/* ---------- Caixa JavaScript ---------- */
+#javascript {
+    border: 2px solid var(--azul-escuro);
+    background-color: var(--branco);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: box-shadow 0.3s;
+}
+
+#javascript:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+#javascript p {
+    color: var(--preto);
+}
+
+/* ---------- Administração ---------- */
+#admin {
+    background-color: var(--color-primary);
+    padding: 50px 20px;
     text-align: center;
-    text-decoration: none;
 }
+
 #admin .cargos {
     display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
 }
-footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 5%;
-}
-img{
-    width: 200px;
-    height: 200px;
-    padding: 10px;
-    background-size: cover;
-}
-.titulo{
-    font-family: var(--fontemain);
-    font-weight: 700;
-    font-size: 25px;
-}
-.texto{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-style: 600;
-    font-size: 20px;
 
+#admin a {
+    font-family: var(--fontesecond);
+    color: var(--azul-escuro);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+#admin a:hover {
+    color: var(--azul-claro);
+}
+
+/* ---------- Rodapé ---------- */
+footer {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer img {
+    height: 90px;
+    width: auto;
+}
+
+/* ---------- Títulos e Texto ---------- */
+.titulo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+
+.texto {
+    font-size: 16px;
+    color: var(--preto);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    #main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #content,
+    #info {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* ---------- Imagem Circular no Canto Inferior Direito ---------- */
+.imagem-circular {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.85;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.imagem-circular {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.link-inferior {
+    color: var(--color-terceira);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 16px;
+}
+
+.link-inferior:hover {
+    color: var(--branco);
 }
