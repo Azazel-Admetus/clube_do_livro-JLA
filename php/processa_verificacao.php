@@ -4,10 +4,11 @@ session_start();
 $codigo = trim($_POST['codigo']);
 $email = $_SESSION['email_autenticacao'];
 $fluxo = $_SESSION['fluxo_autenticacao'];
-if($fluxo == 'perfil'){
+if($fluxo == 'perfil' || $fluxo == 'esqueci_senha'){
     header('Location:../html/alterar_senha.html');
     exit;
 }
+
 
 $stmt = $conn->prepare("SELECT codigo_verificacao FROM users WHERE email = :email");
 $stmt->bindValue(":email", $email);
@@ -22,5 +23,8 @@ if($stmt->execute()){
         }else{
             echo "Código incorreto. Tente novamente";
         }
+    }else{
+        header('Location:autenticacao.php?error');
+        exit;
     }
 }
