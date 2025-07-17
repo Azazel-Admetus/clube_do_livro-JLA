@@ -1,3 +1,26 @@
+<?php
+session_start();
+session_start();
+if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') {
+    header('Location:login.html');
+    exit();
+}
+require_once '../php/conn.php';
+$user_id = $_SESSION['user_id'];
+$erro = '';
+$stmt = $conn->prepare("SELECT nome, biografia, email, imagem_perfil_url FROM users WHERE id = :user_id");
+$stmt->bindValue(':user_id', $user_id);
+if($stmt->execute()){
+    $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
+    if(!$user_info) {
+        $erro = "Erro ao buscar informações do usuário.";
+        exit();
+    }
+} else {
+    $erro = "Erro ao executar a consulta.";
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,12 +45,15 @@
 
         <section class="perfil-info">
             <div class="foto-perfil">
-                <img id="foto-perfil" src="#" alt="Foto do usuário">
+                <img id="foto-perfil" src="<?= htmlspecialchars($user_info['imagem_perfil_url']);?>" alt="Foto do usuário">
             </div>
             <div class="dados-usuario">
-                <h2>Nome do Usuário</h2>
-                <p>Email: usuario@exemplo.com</p>
-                <p>Biografia:</p>
+                <?php if ($erro): ?>
+                    <div class="mensagem-erro"><?= htmlspecialchars($erro); ?></div>
+                <?php endif; ?>
+                <h2>Nome de Usuário: <?= htmlspecialchars($user_info['nome']); ?></h2>
+                <p>Email: <?= htmlspecialchars($user_info['email']);?></p>
+                <p>Biografia: <?= htmlspecialchars($user_info['biografia']);?></p>
     
             </div>
         </section>
