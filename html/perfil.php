@@ -1,8 +1,7 @@
 <?php
 session_start();
-session_start();
-if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') {
-    header('Location:login.html');
+if (empty($_SESSION['user_id']) || !is_numeric($_SESSION['user_id'])) {
+    header('Location: login.html');
     exit();
 }
 require_once '../php/conn.php';

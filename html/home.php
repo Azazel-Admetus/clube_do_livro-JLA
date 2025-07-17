@@ -1,6 +1,6 @@
 <?php
 require_once '../php/conn.php';
-$stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse FROM Livros_resenha");
+$stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse, url_imagem FROM Livros_resenha ORDER BY data DESC LIMIT 5");
 if($stmt->execute()){
     $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $erro = '';
@@ -16,22 +16,24 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/home.css">
     <title>Narrify - Versos e Prosa</title>
 </head>
 <body>
     <main>
         <header>
-            <h1></h1>
+            <a href="home.php">
+                <img src="../img/logo-secundária-removebg.png" alt="Logo do Clube do Livro" class="logo">
             <nav>
                 <ul>
                     <li class="">
                         <a href="perfil.php">Perfil</a>
                     </li>
                     <li class="">
-                        <a href="../php/logout.php">Sair</a>
+                        <a href="explorar.php">Explorar</a>
                     </li>
                     <li class="">
-                        <a href="explorar.php">Explorar</a>
+                        <a href="../php/logout.php">Sair</a>
                     </li>
                 </ul>
             </nav>
@@ -47,33 +49,49 @@ if($stmt->execute()){
                 <?php if ($erro): ?>
                     <div class="mensagem-erro"><?= htmlspecialchars($erro); ?></div>
                 <?php endif; ?>
-                <!-- <?php foreach($resenhas as $resenha): ?> -->
-                    <article class="resenha">
-                        <h2 class="titulo"><?= htmlspecialchars($resenha['titulo']);?></h2>
-                        <h6 class="titulo">Autor: <?= htmlspecialchars($resenha['autor_livro']) ?></h6>
-                        <p class="descricao"><?= htmlspecialchars($resenha['sinopse']);?></p>
-                        <a href="resenhas.php?id=<?= htmlspecialchars($resenha['id']);?>" class="link_resenha">Leia mais</a>
-                    </article>
-              <!--  <?php endforeach; ?> -->
+                <div id="slider">
+                    <?php foreach($resenhas as $index => $resenha): ?>
+                        <article class="resenha-card slider-item <?= $index === 0 ? 'ativa' : '' ?>">
+                            <img src="<?= htmlspecialchars($resenha['url_imagem']); ?>" alt="Capa do livro <?= htmlspecialchars($resenha['titulo']); ?>" class="capa-livro">
+                            <div class="resenha-conteudo">
+                                <h3><?= htmlspecialchars($resenha['titulo']); ?></h3>
+                                <p class="autor-livro">Autor: <?= htmlspecialchars($resenha['autor_livro']); ?></p>
+                                <p class="sinopse"><?= htmlspecialchars($resenha['sinopse']); ?></p>
+                                <a href="resenhas.php?id=<?= htmlspecialchars($resenha['id']); ?>" class="link_resenha">Leia mais</a>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </section>
         <section>
             <h2>Quer participar?</h2>
             <p>Atualmente, apenas membros do clube podem publicar resenhas. Fale com um administrador para saber como entrar!</p>
             <a class="link" href="mailto:narrify.jla@gmail.com">
-                <h6 class="titulo">Fale com um administrador pelo Email: narrify.jla@gmail.com</h5>
+                <h6 class="titulo email">Fale com um administrador pelo Email: narrify.jla@gmail.com</h6>
             </a>
         </section>
-        <footer>
-            <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino">
-        </footer>
     </main>
+    <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino" class="logo-jla">
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('processo');   
         if(error === "sucesso"){
             alert("Seja bem-vindo(a)!")
         }
+        const resenhas = document.querySelectorAll('.resenha-card');
+        let index = 0;
+
+        function mostrarProximaResenha() {
+            resenhas.forEach((el, i) => {
+                el.classList.remove('ativa');
+            });
+            resenhas[index].classList.add('ativa');
+            index = (index + 1) % resenhas.length;
+        }
+
+        mostrarProximaResenha();
+        setInterval(mostrarProximaResenha, 5000); 
     </script>
 </body>
 </html>
