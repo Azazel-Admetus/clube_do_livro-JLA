@@ -1,17 +1,26 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') {
     header('Location:login.html');
     exit();
 }
+$id_resenha = $_GET['id'] ?? null;
+$erro = '';
+if(!$id_resenha) {
+    $erro = "ID da resenha não fornecido.";
+    exit();
+}
 require_once '../php/conn.php';
 $username = $_SESSION['username'];
-$stmt = $conn>prepare("SELECT * FROM Livros_resenha WHERE autor = :username");
-$stmt->bindValue(':username', $username);
+$stmt = $conn->prepare("SELECT * FROM Livros_resenha WHERE id = :id");
+$stmt->bindValue(':id', $id_resenha);
 if($stmt->execute()){
     $resenhas = $stmt->fetch(PDO::FETCH_ASSOC);
     if(!$resenhas) {
-        die("Nenhuma resenha encontrada para o usuário: $username");
+        $erro = "Nenhuma resenha encontrada para o usuário: $username";
         exit();
     }
     //agora vou pegar as informações do usuario
@@ -20,7 +29,7 @@ if($stmt->execute()){
     if($stmt2->execute()){
         $user_info = $stmt2->fetch(PDO::FETCH_ASSOC);
         if(!$user_info) {
-            die("Erro ao buscar informações do usuário.");              
+            $erro = "Erro ao buscar informações do usuário.";              
             exit();
         }
     }
@@ -41,6 +50,9 @@ if($stmt->execute()){
         </a>
     </header>
     <main>
+        <?php if ($erro): ?>
+            <div class="mensagem-erro"><?= htmlspecialchars($erro); ?></div>
+        <?php endif; ?>
         <header>
         <div class="info_livro">
             <h1 class="titulo">Título: <?= htmlspecialchars($resenhas['titulo']); ?></h1>
