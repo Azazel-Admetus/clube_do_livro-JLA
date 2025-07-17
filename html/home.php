@@ -1,5 +1,6 @@
 <?php
 require_once '../php/conn.php';
+session_start();
 $stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse, url_imagem FROM Livros_resenha ORDER BY data DESC LIMIT 5");
 if($stmt->execute()){
     $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -24,6 +25,7 @@ if($stmt->execute()){
         <header>
             <a href="home.php">
                 <img src="../img/logo-secundária-removebg.png" alt="Logo do Clube do Livro" class="logo">
+            </a>
             <nav>
                 <ul>
                     <li class="">
@@ -41,7 +43,11 @@ if($stmt->execute()){
         <section class="apresentacao">
             <h1>Bem-vindo ao Clube Literário Narrify - Versos e Prosa</h1>
             <p>Leia, compartilhe e descubra novas histórias com a nossa comunidade literária.</p>
-            <a href="explorar.php" class="btn">Explorar resenhas</a>                  
+            <a href="explorar.php" class="btn">Explorar resenhas</a>
+            <?php if(!empty($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'admin'): ?>
+            <a href="livros_resenha.php" class="btn">Publicar resenha</a>  
+            <?php endif;?> 
+              
         </section>
         <section class="destaques">
             <h2>Últimas resenhas</h2>
