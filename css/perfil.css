@@ -167,3 +167,42 @@ footer {
     font-size: 14px;
     color: #777;
 }
+.slider-slider {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* limite para as resenhas no perfil */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider-item {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.8s ease;
+    opacity: 0;
+}
+
+.slider-item.ativa {
+    display: flex;
+    opacity: 1;
+}
+.slider-item img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+}
+
+.slider-item h3 {
+    font-size: 18px;
+    color: var(--azul-escuro);
+}
+.resenha-slider a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}

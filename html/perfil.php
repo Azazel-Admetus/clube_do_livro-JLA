@@ -19,6 +19,19 @@ if($stmt->execute()){
     $erro = "Erro ao executar a consulta.";
     exit();
 }
+$username = $user_info['nome'];
+//agora eu vou buscar as resenhas 
+$stmt = $conn->prepare("SELECT id, titulo, url_imagem FROM Livros_resenha WHERE autor = :username ORDER BY data DESC limit 5");
+$stmt->bindValue(':username', $username);
+if($stmt->execute()){
+    $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if(!$resenhas) {
+        $erro = "Nenhuma resenha encontrada. Tente novamente mais tarde.";
+    }
+} else {
+    $erro = "Erro ao executar a consulta de resenhas.";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,8 +39,8 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/perfil.css?v=1.0">
     <title>Narrify | Perfil</title>
-    <link rel="stylesheet" href="../css/perfil.css">
 </head>
 
 <body>
@@ -58,13 +71,18 @@ if($stmt->execute()){
         </section>
 
         <section class="livros-lidos">
-            <h2>Livros lidos:</h2>
-            <div id="card-livros">
-                <h3 id="titulo-livro">Título do livro</h3>
-                <img id="imagem-livro" src="#" alt="Capa do livro">
+            <h2>Resenhas feitas:</h2>
+            <div class="resenha-slider">
+                <?php foreach($resenhas as $index => $resenha): ?>
+                    <a href="resenhas.php?id=<?= htmlspecialchars($resenha['id']); ?>">
+                        <div class="slider-item<?= $index === 0 ? ' ativa' : '' ?>">
+                            <img src="<?= htmlspecialchars($resenha['url_imagem']); ?>" alt="Capa do livro">
+                            <h3><?= htmlspecialchars($resenha['titulo']); ?></h3>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </section>
-
         <section id="config-user">
             <a href="alterar-username.html">
                 <h4>Altere seu nome de usuário</h4>
@@ -84,6 +102,18 @@ if($stmt->execute()){
             <p>© 2025 Narrify - Clube do Livro</p>
         </footer>
     </main>
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.slider-item');
+
+        function mostrarProximaResenha() {
+            slides[index].classList.remove('ativa');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('ativa');
+        }
+
+        setInterval(mostrarProximaResenha, 4000);
+    </script>
 </body>
 
 </html>
