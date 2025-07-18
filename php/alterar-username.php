@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $stmt->bindValue(':nome', $nome);
         $stmt->bindValue(':email', $email);
         if($stmt->execute()){
-            header('Location:../html/perfil.php?insert=True');
+            header('Location:../html/loading.html?msg=Alterando...&redirect=../html/perfil.php?insert=True');
             exit;
         } else{
             header('Location:../html/alterar-username.html?insert=Error');

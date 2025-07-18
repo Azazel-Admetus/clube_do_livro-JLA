@@ -5,7 +5,7 @@ $codigo = trim($_POST['codigo']);
 $email = $_SESSION['email_autenticacao'];
 $fluxo = $_SESSION['fluxo_autenticacao'];
 if($fluxo == 'perfil' || $fluxo == 'esqueci_senha'){
-    header('Location:../html/alterar_senha.html');
+    header('Location:../html/loading.html?msg=Redirecionando...&redirect=../html/alterar_senha.html');
     exit;
 }
 
@@ -18,13 +18,13 @@ if($stmt->execute()){
         $stmt2 = $conn->prepare("UPDATE users SET verificado = 1 WHERE email = :email");
         $stmt2->bindValue(":email", $email);
         if($stmt2->execute()){
-            header('Location:../html/home.php?verificado=true');
+            header('Location:../html/loading.html?msg=Verificando...&redirect=../html/home.php?verificado=true');
             exit;
         }else{
             echo "Código incorreto. Tente novamente";
         }
     }else{
-        header('Location:autenticacao.php?error');
+        header('Location:../html/verificar_codigo.html?error=codigo_incorreto');
         exit;
     }
 }

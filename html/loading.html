@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/loading.css">
+  <title>Carregando...</title>
+</head>
+<body>
+  <div class="loader"></div>
+  <p id="msg">Carregando...</p>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const msg = urlParams.get('msg') || 'Carregando...';
+    const redirect = urlParams.get('redirect') || '../index.php';
+
+    document.getElementById('msg').textContent = msg;
+
+    setTimeout(() => {
+      window.location.href = redirect;
+    }, 1500); // tempo de carregamento
+  </script>
+</body>
+</html>

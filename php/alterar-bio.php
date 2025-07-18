@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $stmt->bindValue(':bio', $bio);
         $stmt->bindValue(':id', $user_id);
         if($stmt->execute()){
-            header('Location:../html/perfil.php?update=True');
+            header('Location:../html/loading.html?msg=Salvando...&redirect=../html/perfil.php?update=True');
             exit;
         } else{
             header('Location:../html/alterar_biografia.html?update=Error');

@@ -47,7 +47,7 @@ if($stmt->execute()){
             <nav>
                 <ul>
                     <li><a href="home.php">Início</a></li>
-                    <li><a href="../php/logout.php">Sair</a></li>
+                    <li><a href="loading.html?msg=Saindo...&redirect=../php/logout.php">Sair</a></li>
                 </ul>
             </nav>
         </header>
