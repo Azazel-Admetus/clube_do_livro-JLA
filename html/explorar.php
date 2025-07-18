@@ -1,6 +1,5 @@
 <?php
 require_once '../php/conn.php';
-$username = $_SESSION['username'];
 $stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse FROM Livros_resenha");
 if($stmt->execute()){
     $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -17,7 +16,7 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/explorar.css?v=1.0">
+    <link rel="stylesheet" href="../css/explorar.css?v=1.2">
     <title>Explore as resenhas criadas</title>
 </head>
 <body>
