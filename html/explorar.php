@@ -1,14 +1,21 @@
 <?php
 require_once '../php/conn.php';
-$stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse FROM Livros_resenha");
+$erro = '';
+$resenhas = [];
+if(isset($_GET['autor']) && !empty(trim($_GET['autor']))){
+    $autor = '%' . trim($_GET['autor']) . '%';
+    $stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse FROM Livros_resenha WHERE autor_livro LIKE :autor");
+    $stmt->bindParam(':autor', $autor, PDO::PARAM_STR);
+}else{
+    $stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse FROM Livros_resenha");
+}
 if($stmt->execute()){
     $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $erro = '';
-    if(!$resenhas) {
-        $erro = "Nenhuma resenha encontrada. Tente novamente mais tarde.";
-
+    if(!$resenhas){
+        $erro = "Nenhuma resenha encontrada.";
     }
-
+}else{
+    $erro = "Erro ao buscar resenhas";
 }
 ?>
 <!DOCTYPE html>
@@ -25,9 +32,11 @@ if($stmt->execute()){
             <img src="../img/logo-principal-slogan-transparente.png" alt="Logo do Clube do Livro" class="logo">
         </a>
         <div class="busca">
-            <label for="search">Filtrar</label>
-            <input type="search" id="search" name="q" placeholder="Buscar por título de livro...">
-            <button type="submit">Buscar</button>
+            <form method="get">
+                <label for="search">Filtrar</label>
+                <input type="search" id="search" name="autor" placeholder="Buscar por autor...">
+                <button type="submit">Buscar</button>
+            </form>
         </div>
     </header>
     <main>
