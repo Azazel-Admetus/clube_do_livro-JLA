@@ -54,7 +54,7 @@ if($stmt->execute()){
 
         <section class="perfil-info">
             <div class="foto-perfil">
-                <img id="foto-perfil" src="<?= htmlspecialchars($user_info['imagem_perfil_url']);?>" alt="Foto do usuário">
+                <img id="foto-perfil" src="<?= htmlspecialchars(!empty($user_info['imagem_perfil_url']) ? $user_info['imagem_perfil_url'] : '../img/sem_foto_de_perfil.jpeg');?>" alt="Foto do usuário">
             </div>
             <div class="dados-usuario">
                 <?php if ($erro): ?>
