@@ -38,9 +38,11 @@
         const error = urlParams.get('error');
 
         if (error === 'erro_cadastro') {
-            alert('Ocorreu um erro ao cadastrar, tente novamente mais tarde');
+            alert('Ocorreu um erro ao cadastrar, tente novamente mais tarde.');
         } else if (error === 'campos_vazios') {
-            alert('Por favor, preencha corretamente todos os campos');
+            alert('Por favor, preencha corretamente todos os campos.');
+        } else if (error === 'email_!exists'){
+            alert('Usuário inexistente. Faça o cadastro')
         }
     </script>
 

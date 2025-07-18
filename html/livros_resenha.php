@@ -66,6 +66,19 @@ if($stmt->execute()){
     </main>
 
     <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');   
+        if(error === "success"){
+            alert("Salvado com sucesso!")
+        }else if(error === "invalid_type"){
+            alert('Tipo de arquivo inválido. Tente novamente.')
+        }else if(error === "size"){
+            alert("Tamanho do arquivo excede os limites. Tente novamente.")
+        }else if(error === "not_image"){
+            alert("Tipo de arquivo inválido. Tente novamente.")
+        }else if(error === "db_update_failed"){
+            alert("Falha ao salvar resenha. Tente novamente.")
+        }
         const capaInput = document.getElementById('capa');
         const nomeCapa = document.getElementById('nome-capa');
         capaInput.addEventListener('change', () => {

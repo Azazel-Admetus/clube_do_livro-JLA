@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $stmtV->execute();
     $count = $stmtV->fetchColumn();
     if($count == 0){
-        header('Location:../html/cadastro.html?error=email_exists');
+        header('Location:../html/cadastro.html?error=email_!exists');
         exit;
     }
 

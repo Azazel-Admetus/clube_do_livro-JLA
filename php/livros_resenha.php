@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $stmt->bindValue(':autor', $username);
             $stmt->bindValue(':autor_livro', $autor_livro);
             if($stmt->execute()){
-                header('Location:../html/livros_resenha.php?insert=success');
+                header('Location:../html/livros_resenha.php?error=success');
                 exit;
             }else{
                 header('Location:../html/livros_resenha.php?error=db_update_failed');

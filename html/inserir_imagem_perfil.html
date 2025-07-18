@@ -27,6 +27,23 @@
         <button type="submit">Salvar</button>
     </form>
     <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');   
+        if(error === "invalid_type"){
+            alert("Tipo de arquivo inválido. Tente novamente.")
+        }else if(error === "size"){
+            alert('Tamanho do arquivo excede os limites. Tente novamente.')
+        }else if(error === "not_image"){
+            alert("Imagem inválida. Tente novamente")
+        }else if(error === "db_update_failed"){
+            alert('Falha ao inserir no banco de dados. Tente novamente.')
+        }else if(error === "upload_failed"){
+            alert("Erro ao inserir no banco dados. Tente novamente.")
+        }else if(error === "not_file"){
+            alert("Escolha um arquivo válido.")
+        }else if(error == "form"){
+            alert("Preencha todos os campos.")
+        }
         const inputFile = document.getElementById('imagem_usuario');
         const nomeArquivo = document.getElementById('nome-arquivo');
 

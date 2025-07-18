@@ -27,10 +27,8 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('insert');
-        if (error == 'True') {
-            alert('Informações alteradas com sucesso!');
-        } else if (error == 'error') {
-            alert("Erro ao tentar alterar as informações. Tente novamente.");
+        if (error == 'erro') {
+            alert('Erro ao tentar fazer alterações. Tente novamente.');
         }
     </script>
 </body>

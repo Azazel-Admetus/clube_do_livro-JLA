@@ -18,7 +18,7 @@ if($stmt->execute()){
         $stmt2 = $conn->prepare("UPDATE users SET verificado = 1 WHERE email = :email");
         $stmt2->bindValue(":email", $email);
         if($stmt2->execute()){
-            header('Location:../html/loading.html?msg=Verificando...&redirect=../html/home.php?verificado=true');
+            header('Location:../html/loading.html?msg=Verificando...&redirect=../html/home.php?processo=verificacao_true');
             exit;
         }else{
             echo "Código incorreto. Tente novamente";

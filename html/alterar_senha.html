@@ -25,6 +25,19 @@
 
         <button type="submit">Alterar Senha</button>
     </form>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        if (error == 'alterar_senha') {
+            alert('Erro ao tentar fazer alteração. Tente novamente.');
+        } else if (error == 'senhas_diferentes') {
+            alert("Senhas diferentes. Preencha ambos os campos com a mesma senha.");
+        } else if(error == 'senha_curta'){
+            alert("A senha precisa ter pelo menos 8 caracteres.")
+        } else if(error == 'requisicao_invalida'){
+            alert("Erro ao mandar formulário. Tente novamente.")
+        }
+    </script>
 </body>
 
 </html>

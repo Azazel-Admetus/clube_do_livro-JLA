@@ -84,6 +84,8 @@ if($stmt->execute()){
         const error = urlParams.get('processo');   
         if(error === "sucesso"){
             alert("Seja bem-vindo(a)!")
+        }else if(error === "verificacao_true"){
+            alert('Verificação concluída. Seja bem-vindo!')
         }
         const resenhas = document.querySelectorAll('.resenha-card');
         let index = 0;

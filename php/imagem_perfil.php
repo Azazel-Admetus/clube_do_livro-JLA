@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $stmt->bindValue(':url_imagem', $url_imagem);
             $stmt->bindValue(':email', $email);
             if($stmt->execute()){
-                header('Location:../html/inserir_imagem_perfil.html?upload=success&url=' . urlencode($url_imagem));
+                header('Location:../html/loading.html?msg=Carregando...&redirect=../html/perfil.php?upload=success&url=' . urlencode($url_imagem));
                 exit;
             }else{
                 header('Location:../html/inserir_imagem_perfil.html?error=db_update_failed');
