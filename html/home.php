@@ -17,6 +17,14 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Página home do clube literário Narrify - Versos e Prosa">
+    <meta name="keywords" contents="home page, página home, início, Narrify, NarrifyJLA, Narrify.JLA, Narrify.jla, Narrifyjla, Narrify - Versos e Prosa">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="../css/home.css">
     <title>Narrify - Versos e Prosa</title>
 </head>

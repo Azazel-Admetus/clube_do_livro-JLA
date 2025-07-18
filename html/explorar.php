@@ -23,6 +23,14 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Explore as resenhas feitas pelos membros do clube literário Narrify">
+    <meta name="keywords" contents="Explorar, Explore, Resennhas, explorar resenhas">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="../css/explorar.css?v=1.2">
     <title>Explore as resenhas criadas</title>
 </head>

@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Verifique o código de identificação de identidade.">
+    <meta name="keywords" contents="verificar identidade, verificação de identidade">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="../css/verificar_codigo.css">
     <title>Verificar Codigo</title>
 </head>
@@ -21,8 +29,8 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');   
-        if(error === "sucesso"){
-            alert("Seja bem-vindo(a)!")
+        if(error === "codigo_incorreto"){
+            alert("Código inválido. Tente novamente.")
         }else if(error === "verificacao_true"){
             alert('Verificação concluída. Seja bem-vindo!')
         }

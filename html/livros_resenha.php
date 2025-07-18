@@ -25,8 +25,16 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livros resenha</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Crie resenhas sobre diversos livros">
+    <meta name="keywords" contents="crie resenha, criar resenhas, resenhas">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="../css/livros_resenha.css">
+    <title>Livros resenha</title>
 </head>
 
 <body>
