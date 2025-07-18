@@ -67,7 +67,7 @@ if($stmt->execute()){
         </form>
     </main>
     <script>
-        //variáveis para tratamento de erro
+        //variáveis para tratamento de erro e verificação
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');   
         if(error === "success"){

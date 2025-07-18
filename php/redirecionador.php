@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if(isset($_GET['fluxo'])){
     $fluxo = $_GET['fluxo'];
     if(in_array($fluxo, ['login', 'perfil', 'esqueci_senha'])){
@@ -12,3 +11,4 @@ if(isset($_GET['fluxo'])){
         exit;
     }
 }
+?>

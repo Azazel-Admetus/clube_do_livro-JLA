@@ -1,7 +1,6 @@
 const div = document.getElementById('javascript');
 let conteudos = [];
 let index = 0;
-
 fetch('index.csv')
     .then(response => response.text())
     .then(text => {
@@ -14,12 +13,9 @@ fetch('index.csv')
         mostrarConteudo();
         setInterval(mostrarConteudo, 5000);
     });
-
 function mostrarConteudo() {
     if (conteudos.length === 0) return;
-
     const {titulo, descricao} = conteudos[index];
-    div.innerHTML = `<h3>${titulo}</h3><p>${descricao}</p>`;
-    
+    div.innerHTML = `<h3>${titulo}</h3><p>${descricao}</p>`;  
     index = (index + 1) % conteudos.length;
 }

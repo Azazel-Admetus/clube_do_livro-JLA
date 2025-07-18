@@ -1,12 +1,9 @@
 <?php
-ini_set('display_errors', 1); 
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require_once 'cloud-conn.php';
-require_once 'conn.php';
-session_start();
+require_once 'cloud-conn.php'; // arquivo de conexão do cloudinary
+require_once 'conn.php'; //arquivo de conexão do banco de dados
+session_start(); //inicia a sessão
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    //buscando os dados do formulário
+    //buscando os dados do formulário e fazendo a sanitização
     $titulo = trim(strip_tags($_POST['titulo']));
     $autor_livro = trim(strip_tags($_POST['autor']));
     $genero = trim(strip_tags($_POST['genero']));

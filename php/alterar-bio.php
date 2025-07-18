@@ -1,14 +1,11 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require_once 'conn.php';
-session_start();
-$user_id = $_SESSION['user_id'];
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $bio = trim(strip_tags($_POST['bio']));
-    if(!empty($bio)){
-        $stmt = $conn->prepare("UPDATE users SET biografia = :bio WHERE id = :id");
+require_once 'conn.php'; //arquivo de conexão do banco de dados
+session_start(); //inicia a sessão
+$user_id = $_SESSION['user_id']; //pega o id do usuário na sessão
+if($_SERVER['REQUEST_METHOD'] == 'POST'){ //verifica o tipo de requisição
+    $bio = trim(strip_tags($_POST['bio'])); //pega o valor do input e sanitiza
+    if(!empty($bio)){ //verifica se a biografia enviada está vazia
+        $stmt = $conn->prepare("UPDATE users SET biografia = :bio WHERE id = :id"); //insere a biografia no banco de dados
         $stmt->bindValue(':bio', $bio);
         $stmt->bindValue(':id', $user_id);
         if($stmt->execute()){

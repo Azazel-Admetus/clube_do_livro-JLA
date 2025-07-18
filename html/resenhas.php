@@ -1,30 +1,27 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-session_start();
-if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') {
+session_start(); //inicia a sessão
+if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') { //verifica se o usuário está logado
     header('Location:login.html');
     exit();
 }
-$id_resenha = $_GET['id'] ?? null;
+$id_resenha = $_GET['id'] ?? null; //pega o id da resenha que está como parâmetro na url
 $erro = '';
-if(!$id_resenha) {
+if(!$id_resenha) { //verifica se tem id válido
     $erro = "ID da resenha não fornecido.";
     exit();
 }
-require_once '../php/conn.php';
-$stmt = $conn->prepare("SELECT * FROM Livros_resenha WHERE id = :id");
+require_once '../php/conn.php'; //arquivo de conexão do banco de dados
+$stmt = $conn->prepare("SELECT * FROM Livros_resenha WHERE id = :id"); // busca as resenhas com base no id da resenha
 $stmt->bindValue(':id', $id_resenha);
 if($stmt->execute()){
-    $resenhas = $stmt->fetch(PDO::FETCH_ASSOC);
+    $resenhas = $stmt->fetch(PDO::FETCH_ASSOC); //armazena as resenhas
     if(!$resenhas) {
         $erro = "Nenhuma resenha encontrada. Tente novamente mais tarde.";
         exit();
     }
     $usuario = $resenhas['autor'];
-    //agora vou pegar as informações do usuario
-    $stmt2 = $conn->prepare('SELECT biografia, imagem_perfil_url FROM users WHERE nome= :nome');
+    //agora vou pegar as informações do autor da resenha
+    $stmt2 = $conn->prepare('SELECT biografia, imagem_perfil_url FROM users WHERE nome= :nome'); //busca as informações do criador da resenha
     $stmt2->bindValue(':nome', $usuario);
     if($stmt2->execute()){
         $user_info = $stmt2->fetch(PDO::FETCH_ASSOC);
@@ -32,7 +29,11 @@ if($stmt->execute()){
             $erro = "Erro ao buscar informações do usuário.";              
             exit();
         }
+    }else{
+        $erro = "Erro ao buscar as informações do criador da resenha no banco de dados.";
     }
+}else{
+    $erro = "Erro ao buscar as resenhas no banco de dados";
 }
 ?>
 <!DOCTYPE html>

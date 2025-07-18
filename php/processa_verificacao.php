@@ -8,8 +8,6 @@ if($fluxo == 'perfil' || $fluxo == 'esqueci_senha'){
     header('Location:../html/loading.html?msg=Redirecionando...&redirect=../html/alterar_senha.html');
     exit;
 }
-
-
 $stmt = $conn->prepare("SELECT codigo_verificacao FROM users WHERE email = :email");
 $stmt->bindValue(":email", $email);
 if($stmt->execute()){
@@ -28,3 +26,4 @@ if($stmt->execute()){
         exit;
     }
 }
+?>

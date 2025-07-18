@@ -1,4 +1,5 @@
 <?php
+//ARQUIVO PARA DEPURAÇÃO DE ERROS
 // Ativa exibição de erros no navegador (somente em ambiente de desenvolvimento!)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

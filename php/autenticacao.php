@@ -1,15 +1,11 @@
 <?php
-// ini_set('display_errors', 1); para quando for debugar
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-require "conn.php";
-require "../vendor/autoload.php";
-require "enviarCodigo.php";
-session_start();
-
+require "conn.php"; //arquivo de conexão do banco de dados
+require "../vendor/autoload.php"; //caminho do vendor para utilizar a biblioteca PHPMailer
+require "enviarCodigo.php"; //arquivo onde está a função que utiliza essa biblioteca
+session_start(); //inicia a sessão
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL); //pega o email e sanitiza
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){ //verifica se é válido o endereço de email
         header('Location:../html/autenticacao.html?error=invalid_email');
         exit;
     }
@@ -17,19 +13,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $stmtV = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
     $stmtV->bindValue(':email', $email);
     $stmtV->execute();
-    $count = $stmtV->fetchColumn();
-    if($count == 0){
+    $count = $stmtV->fetchColumn(); 
+    if($count == 0){ //verifica se tem esse email no banco de dados
         header('Location:../html/cadastro.html?error=email_!exists');
         exit;
     }
-
-    $_SESSION['email_autenticacao'] = $email;
-    $codigo = rand(100000, 999999);
-    $stmt = $conn->prepare("UPDATE users SET codigo_verificacao = :codigo, verificado = 0 WHERE email = :email ");
+    $_SESSION['email_autenticacao'] = $email; //pega o email armazenado na sessão
+    $codigo = rand(100000, 999999); //gera um código de 6 dígitos
+    $stmt = $conn->prepare("UPDATE users SET codigo_verificacao = :codigo, verificado = 0 WHERE email = :email "); //insere no banco de dados esse código para verificação posterior
     $stmt->bindValue(':codigo', $codigo);
     $stmt->bindValue(':email', $email);
     if($stmt->execute()){
-        if(enviarCodigo($email, $codigo)){
+        if(enviarCodigo($email, $codigo)){ //usa a função para enviar código
             header("Location:../html/verificar_codigo.html");
             exit;
         }else{
@@ -40,8 +35,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo "erro no stmt execute";
         exit;
     }
-
 }else{
     echo "form nao enviado";
     exit;
 }
+?>

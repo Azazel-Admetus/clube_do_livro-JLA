@@ -1,12 +1,10 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
-
+require_once __DIR__ . '/../vendor/autoload.php';//puxa o arquivo do vendor para usar a biblioteca
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
+//função para enviar código pelo email
 function enviarCodigo($email, $codigo){
     $mail = new PHPMailer(true);
     try{
@@ -19,7 +17,6 @@ function enviarCodigo($email, $codigo){
         $mail->Password = $_ENV['EMAIL_PASSWORD']; 
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
-
         $mail->setFrom($_ENV['EMAIL_USERNAME'], $_ENV['EMAIL_FROM_NAME']);
         $mail->addAddress($email);
         $mail->Subject = 'Código de Verificação';
@@ -32,3 +29,4 @@ function enviarCodigo($email, $codigo){
         return false;
     }
 }
+?>

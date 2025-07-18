@@ -1,14 +1,11 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require_once "conn.php";
-session_start();
+require_once "conn.php";//arquivo de conexão do banco de dados
+session_start(); //inicia a sessão
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $nome = trim(strip_tags($_POST['nome']));
+    $nome = trim(strip_tags($_POST['nome'])); //pega o valor do formulário e sanitiza
     $email = $_SESSION['email'];
-    if(!empty($nome)){
-        $stmt = $conn->prepare("UPDATE users SET nome = :nome WHERE email = :email");
+    if(!empty($nome)){ //verifica se está vazio o campo
+        $stmt = $conn->prepare("UPDATE users SET nome = :nome WHERE email = :email"); //altera o valor do nome de usuário
         $stmt->bindValue(':nome', $nome);
         $stmt->bindValue(':email', $email);
         if($stmt->execute()){
@@ -20,3 +17,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 }
+?>
