@@ -79,7 +79,7 @@ if($stmt->execute()){
         </section>
         <footer>
             <div class="info_usuario">
-                <img src="<?= htmlspecialchars(!empty($user_info['imagem_perfil_url']) ? $user_info['imagem_perfil_url'] : '../img/sem_foto_de_perfil.jpeg');?>" alt="Foto do usuário" class="foto_usuario">
+                <img src="<?= htmlspecialchars(!empty($user_info['imagem_perfil_url']) ? $user_info['imagem_perfil_url'] : '../img/sem_foto_de_perfil.jpeg');?>" alt="Foto de perfil do usuário" class="foto_usuario">
                 <h5 class="nome_usuario">Autor da Resenha: <?= htmlspecialchars($usuario);?></h5>
                 <p class="bio">Bio do usuário: <?= htmlspecialchars($user_info['biografia']);?></p>
             </div>

@@ -17,14 +17,14 @@
 <body>
     <header>
         <a id="logo" href="index.html">
-            <img src="../img/logo-secundária-removebg.png">
+            <img src="../img/logo-secundária-removebg.png" alt="Logo do clube do Livro Narrify">
         </a>
     </header>
     <form action="../php/processa_verificacao.php" method="POST">
         <label for="codigo">Digite o código enviado:</label>
-        <input type="text" name="codigo" id="codigo" required>
-        <p>Não recebeu o código? <a href="#" onclick="reenviarCodigo(); return false;">Reenviar Código</a></p>
-        <button type="submit">Verificar</button>
+        <input type="text" name="codigo" id="codigo" placeholder="Digite o código enviado ao seu email" required>
+        <p>Não recebeu o código? <a href="#" onclick="reenviarCodigo(); return false;" aria-label="Reenvie o código se ainda não recebeu">Reenviar Código</a></p>
+        <button type="submit" aria-label="Verificar o código de autenticação">Verificar</button>
     </form>
     <script>
         const urlParams = new URLSearchParams(window.location.search);

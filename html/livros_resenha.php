@@ -40,7 +40,7 @@ if($stmt->execute()){
 <body>
     <header>
         <a href="home.php">
-            <img src="../img/logo-secundária-removebg.png" alt="Logo">
+            <img src="../img/logo-secundária-removebg.png" alt="Logo do clube do livro Narrify">
         </a>
     </header>
 
@@ -69,10 +69,9 @@ if($stmt->execute()){
             <input type="file" id="capa" name="capa" accept=".jpg, .jpeg, .png" required>
             <span id="nome-capa">Nenhum arquivo selecionado</span>
 
-            <button type="submit">Salvar</button>
+            <button type="submit" aria-label="Enviar alterações">Salvar</button>
         </form>
     </main>
-
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');   
@@ -95,5 +94,4 @@ if($stmt->execute()){
         });
     </script>
 </body>
-
 </html>

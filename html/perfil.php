@@ -62,7 +62,7 @@ if($stmt->execute()){
 
         <section class="perfil-info">
             <div class="foto-perfil">
-                <img id="foto-perfil" src="<?= htmlspecialchars(!empty($user_info['imagem_perfil_url']) ? $user_info['imagem_perfil_url'] : '../img/sem_foto_de_perfil.jpeg');?>" alt="Foto do usuário">
+                <img id="foto-perfil" src="<?= htmlspecialchars(!empty($user_info['imagem_perfil_url']) ? $user_info['imagem_perfil_url'] : '../img/sem_foto_de_perfil.jpeg');?>" alt="Foto de perfil do usuário">
             </div>
             <div class="dados-usuario">
                 <?php if ($erro): ?>
@@ -90,16 +90,16 @@ if($stmt->execute()){
         </section>
         <?php endif;?>
         <section id="config-user">
-            <a href="alterar-username.html">
+            <a href="alterar-username.html" aria-label="Altere seu nome de usuário">
                 <h4>Altere seu nome de usuário</h4>
             </a>
-            <a href="inserir_imagem_perfil.html">
+            <a href="inserir_imagem_perfil.html" aria-label="Altere sua foto de perfil">
                 <h4>Altere sua foto de perfil</h4>
             </a>
-            <a href="../php/redirecionador.php?fluxo=perfil">
+            <a href="../php/redirecionador.php?fluxo=perfil" aria-label="Altere sua senha">
                 <h4>Altere sua senha</h4>
             </a>
-            <a href="alterar_biografia.html">
+            <a href="alterar_biografia.html" aria-label="Altere sua biogragia">
                 <h4>Altere sua Biografia</h4>
             </a>
         </section>

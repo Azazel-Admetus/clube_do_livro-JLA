@@ -43,7 +43,7 @@ if($stmt->execute()){
             <form method="get">
                 <label for="search">Filtrar</label>
                 <input type="search" id="search" name="autor" placeholder="Buscar por autor...">
-                <button type="submit">Buscar</button>
+                <button type="submit" aria-label="Filtrar resenhas">Buscar</button>
             </form>
         </div>
     </header>
@@ -67,7 +67,9 @@ if($stmt->execute()){
             <!-- Mais artigos de resenhas podem ser adicionados aqui -->
     </main>
     <footer>
-        <img src="../img/Logo-JLA-sem-bg.png" alt="">
+        <a href="https://www.escolajoaquimdelima.com.br/">
+            <img src="../img/Logo-JLA-sem-bg.png" alt="Logo da Escola Joaquim de Lima Avelino">
+        </a>
     </footer>
 </body>
 </html>

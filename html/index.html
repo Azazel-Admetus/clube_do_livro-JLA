@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,12 +14,11 @@
     <link rel="stylesheet" href="../css/index.css?v=1.2">
     <title>Narrify - Versos e Prosa</title>
 </head>
-
 <body>
     <main>
         <header>
             <img src="../img/logo-secundária-removebg.png" alt="Logo do Clube do Livro">
-            <nav>
+            <nav aria-label="Barra de navegação">
                 <ul>
                     <li>
                         <a class="link" href="login.html">Login</a>
@@ -32,14 +30,14 @@
                 </ul>
             </nav>
         </header>
-        <section id="introduction">
+        <section id="introduction" aria-label="Introdução ao site">
             <div id="div-intro">
                 <h2 class="titulo">Seja muito bem-vindo!</h2>
                 <p class="texto">Este é o site oficial do clube do livro da escola Joaquim de Lima Avelino. Por aqui
                     postaremos sobre nossas atividades, feedbacks de livro e muito mais</p>
             </div>
         </section>
-        <div id="main-content">
+        <div id="main-content" aria-label="Conteúdo principal do site">
             <section id="content">
                 <h2 class="titulo">O que você irá encontrar por aqui?</h2>
                 <div id="javascript">
@@ -88,30 +86,27 @@
                         <h5>Sem ocupante</h5>
                     </a>
                 </div>
-
             </div>
         </section>
-
         <footer>
             <div>
-                <a class="link" href="https://instagram.com/narrify_jla/">
+                <a class="link" href="https://instagram.com/narrify_jla/" aria-label="Acesse o instagram do clube">
                     <h6 class="link-inferior">Instagram: @narrify_jla</h5>
                 </a>
-                <a class="link" href="mailto:narrify.jla@gmail.com">
+                <a class="link" href="mailto:narrify.jla@gmail.com" aria-label="Entre em contato com os administradores">
                     <h6 class="link-inferior">Email: narrify.jla@gmail.com</h5>
 
                 </a>
             </div>
-            <img src="../img/Logo-JLA.jpg" alt="logo da JLA circular" class="imagem-circular">
-
-
+            <a href="https://www.escolajoaquimdelima.com.br/">
+                <img src="../img/Logo-JLA.jpg" alt="logo da Escola Joaquim de Lima Avelino" class="imagem-circular">
+            </a>
         </footer>
     </main>
     <script>
         const div = document.getElementById('javascript');
         let conteudos = [];
         let index = 0;
-
         fetch('../javascript/index.csv')
             .then(response => response.text())
             .then(text => {
@@ -124,7 +119,6 @@
                 mostrarConteudo();
                 setInterval(mostrarConteudo, 5000);
             });
-
         function mostrarConteudo() {
             if (conteudos.length === 0) return;
             div.style.opacity = 0;
@@ -138,7 +132,5 @@
 
         }
     </script>
-
 </body>
-
 </html>

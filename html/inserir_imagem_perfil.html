@@ -19,7 +19,7 @@
 <body>
     <header>
         <a href="perfil.php">
-            <img id="logo-site" src="../img/logo-secundária-removebg.png" alt="Logo Narrify">
+            <img id="logo-site" src="../img/logo-secundária-removebg.png" alt="Logo do clube do livro Narrify">
         </a>
     </header>
     <form action="../php/imagem_perfil.php" method="POST" enctype="multipart/form-data">
@@ -32,7 +32,7 @@
 
         <span id="nome-arquivo">Nenhum arquivo selecionado</span>
 
-        <button type="submit">Salvar</button>
+        <button type="submit" aria-label="Alterar foto de perfil">Salvar</button>
     </form>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -60,8 +60,6 @@
             nomeArquivo.textContent = arquivo ? arquivo.name : 'Nenhum arquivo selecionado';
         });
     </script>
-
-
 </body>
 
 </html>

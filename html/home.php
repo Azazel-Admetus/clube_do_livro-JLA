@@ -34,7 +34,7 @@ if($stmt->execute()){
             <a href="home.php">
                 <img src="../img/logo-secundária-removebg.png" alt="Logo do Clube do Livro" class="logo">
             </a>
-            <nav>
+            <nav aria-label="Barra de navegação">
                 <ul>
                     <li class="">
                         <a href="perfil.php">Perfil</a>
@@ -51,7 +51,7 @@ if($stmt->execute()){
         <section class="apresentacao">
             <h1>Bem-vindo ao Clube Literário Narrify - Versos e Prosa</h1>
             <p>Leia, compartilhe e descubra novas histórias com a nossa comunidade literária.</p>
-            <a href="explorar.php" class="btn">Explorar resenhas</a>
+            <a href="explorar.php" class="btn" aria-label="Explore as resenhas feitas pelos membros do clube">Explorar resenhas</a>
             <?php if(!empty($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'admin'): ?>
             <a href="livros_resenha.php" class="btn">Publicar resenha</a>  
             <?php endif;?> 
@@ -71,7 +71,7 @@ if($stmt->execute()){
                                 <h3><?= htmlspecialchars($resenha['titulo']); ?></h3>
                                 <p class="autor-livro">Autor: <?= htmlspecialchars($resenha['autor_livro']); ?></p>
                                 <p class="sinopse"><?= htmlspecialchars($resenha['sinopse']); ?></p>
-                                <a href="resenhas.php?id=<?= htmlspecialchars($resenha['id']); ?>" class="link_resenha">Leia mais</a>
+                                <a href="resenhas.php?id=<?= htmlspecialchars($resenha['id']); ?>" class="link_resenha" aria-label="Leia a resenha completa">Leia mais</a>
                             </div>
                         </article>
                     <?php endforeach; ?>
@@ -81,12 +81,14 @@ if($stmt->execute()){
         <section>
             <h2>Quer participar?</h2>
             <p>Atualmente, apenas membros do clube podem publicar resenhas. Fale com um administrador para saber como entrar!</p>
-            <a class="link" href="mailto:narrify.jla@gmail.com">
+            <a class="link" href="mailto:narrify.jla@gmail.com" aria-label="Entre em contato com os administradores">
                 <h6 class="titulo email">Fale com um administrador pelo Email: narrify.jla@gmail.com</h6>
             </a>
         </section>
     </main>
-    <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino" class="logo-jla">
+    <a href="https://www.escolajoaquimdelima.com.br/">
+        <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino" class="logo-jla">
+    </a>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('processo');   
