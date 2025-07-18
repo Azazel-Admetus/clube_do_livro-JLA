@@ -1,27 +1,24 @@
 <?php
-require_once '../php/conn.php';
-session_start();
-$stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse, url_imagem FROM Livros_resenha ORDER BY data DESC LIMIT 5");
+require_once '../php/conn.php'; //busca o arquivo de conexão com o banco de dados
+session_start(); //inicia a sessão
+$stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse, url_imagem FROM Livros_resenha ORDER BY data DESC LIMIT 5"); //busca as 5 resenhas mais recentes no banco de dados
 if($stmt->execute()){
-    $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $erro = '';
+    $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC); //pega os valores da consulta do banco de dados
+    $erro = ''; //variável para tratamento de erro
     if(!$resenhas) {
         $erro = "Nenhuma resenha encontrada. Tente novamente mais tarde.";
-
     }
-
 }
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Página home do clube literário Narrify - Versos e Prosa">
-    <meta name="keywords" contents="home page, página home, início, Narrify, NarrifyJLA, Narrify.JLA, Narrify.jla, Narrifyjla, Narrify - Versos e Prosa">
+    <meta name="keywords" content="home page, página home, início, Narrify, NarrifyJLA, Narrify.JLA, Narrify.jla, Narrifyjla, Narrify - Versos e Prosa">
     <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
@@ -52,10 +49,9 @@ if($stmt->execute()){
             <h1>Bem-vindo ao Clube Literário Narrify - Versos e Prosa</h1>
             <p>Leia, compartilhe e descubra novas histórias com a nossa comunidade literária.</p>
             <a href="explorar.php" class="btn" aria-label="Explore as resenhas feitas pelos membros do clube">Explorar resenhas</a>
-            <?php if(!empty($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'admin'): ?>
+            <?php if(!empty($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'admin'): ?> 
             <a href="livros_resenha.php" class="btn">Publicar resenha</a>  
-            <?php endif;?> 
-              
+            <?php endif;?>        
         </section>
         <section class="destaques">
             <h2>Últimas resenhas</h2>
@@ -90,16 +86,18 @@ if($stmt->execute()){
         <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino" class="logo-jla">
     </a>
     <script>
+        //variável para tratamento de erro
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('processo');   
+        //faz a verificação do valor da variável para tratamento de erro
         if(error === "sucesso"){
             alert("Seja bem-vindo(a)!")
         }else if(error === "verificacao_true"){
             alert('Verificação concluída. Seja bem-vindo!')
         }
+        // pega a div resenha class para fazer o esquema do slide
         const resenhas = document.querySelectorAll('.resenha-card');
         let index = 0;
-
         function mostrarProximaResenha() {
             resenhas.forEach((el, i) => {
                 el.classList.remove('ativa');
@@ -107,9 +105,8 @@ if($stmt->execute()){
             resenhas[index].classList.add('ativa');
             index = (index + 1) % resenhas.length;
         }
-
         mostrarProximaResenha();
-        setInterval(mostrarProximaResenha, 5000); 
+        setInterval(mostrarProximaResenha, 5000); //define o tempo de 5s
     </script>
 </body>
 </html>

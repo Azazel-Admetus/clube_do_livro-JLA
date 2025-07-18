@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Verifique o código de identificação de identidade.">
-    <meta name="keywords" contents="verificar identidade, verificação de identidade">
+    <meta name="keywords" content="verificar identidade, verificação de identidade">
     <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
@@ -27,6 +26,7 @@
         <button type="submit" aria-label="Verificar o código de autenticação">Verificar</button>
     </form>
     <script>
+        //variáveis para tratamento de erro e verificação de valores para inserir a mensagem personalizada
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');   
         if(error === "codigo_incorreto"){
@@ -34,6 +34,7 @@
         }else if(error === "verificacao_true"){
             alert('Verificação concluída. Seja bem-vindo!')
         }
+        //função para reenviar o código caso o usuário não tenha recebido
         function reenviarCodigo(){
             fetch('../php/reenviarCodigo.php', {
                 method:'POST'

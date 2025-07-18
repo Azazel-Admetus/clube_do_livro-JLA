@@ -20,11 +20,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location:redirecionador.php?fluxo=login");
             exit();
         } else {
-            header("Location:../html/login.php?error=credenciais_invalidas");
+            header("Location:../html/login.html?error=credenciais_invalidas");
             exit();
         }
     } else {
-        header("Location:../html/login.php?error=campos_vazios");
+        header("Location:../html/login.html?error=campos_vazios");
         exit();
     }
 }

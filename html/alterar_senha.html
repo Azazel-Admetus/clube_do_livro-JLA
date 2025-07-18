@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Altere a senha do usuário.">
-    <meta name="keywords" contents="alterar senha, altere sua senha, alterar senha do perfil, senha, password, perfil">
+    <meta name="keywords" content="alterar senha, altere sua senha, alterar senha do perfil, senha, password, perfil">
     <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
     <title>Alterar senha do usuário</title>
     <link rel="stylesheet" href="../css/alterar_senha.css">
 </head>
-
 <body>
     <header>
         <a href="perfil.php">
@@ -34,8 +31,10 @@
         <button type="submit" aria-label="Finalize as alterações">Alterar Senha</button>
     </form>
     <script>
+        //variáveis para tratamento de erro
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');
+        //verificação dos valores da variável
         if (error == 'alterar_senha') {
             alert('Erro ao tentar fazer alteração. Tente novamente.');
         } else if (error == 'senhas_diferentes') {
@@ -47,5 +46,4 @@
         }
     </script>
 </body>
-
 </html>

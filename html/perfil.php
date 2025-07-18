@@ -1,16 +1,16 @@
 <?php
-session_start();
-if (empty($_SESSION['user_id']) || !is_numeric($_SESSION['user_id'])) {
-    header('Location: login.html');
+session_start(); // inicia a sessão
+if (empty($_SESSION['user_id']) || !is_numeric($_SESSION['user_id'])) { //verifica se o usuário está logado
+   header('Location: login.html'); //redireciona caso não esteja
     exit();
 }
-require_once '../php/conn.php';
+require_once '../php/conn.php'; //arquivo de conexão do banco de dados
 $user_id = $_SESSION['user_id'];
 $erro = '';
-$stmt = $conn->prepare("SELECT nome, biografia, email, imagem_perfil_url FROM users WHERE id = :user_id");
+$stmt = $conn->prepare("SELECT nome, biografia, email, imagem_perfil_url FROM users WHERE id = :user_id"); //busca as informações do usuário com base no id
 $stmt->bindValue(':user_id', $user_id);
 if($stmt->execute()){
-    $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user_info = $stmt->fetch(PDO::FETCH_ASSOC); //armazena as informações
     if(!$user_info) {
         $erro = "Erro ao buscar informações do usuário.";
         exit();
@@ -21,33 +21,29 @@ if($stmt->execute()){
 }
 $username = $user_info['nome'];
 //agora eu vou buscar as resenhas 
-$stmt = $conn->prepare("SELECT id, titulo, url_imagem FROM Livros_resenha WHERE autor = :username ORDER BY data DESC limit 5");
+$stmt = $conn->prepare("SELECT id, titulo, url_imagem FROM Livros_resenha WHERE autor = :username ORDER BY data DESC limit 5"); //busca as 5 resenhas mais recentes do usuário
 $stmt->bindValue(':username', $username);
 if($stmt->execute()){
     $resenhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } else {
     $erro = "Erro ao executar a consulta de resenhas.";
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Perfil do Usuário">
-    <meta name="keywords" contents="perfil do usuário">
+    <meta name="keywords" content="perfil do usuário">
     <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="../css/perfil.css?v=1.0">
     <title>Narrify | Perfil</title>
 </head>
-
 <body>
     <main>
         <header>
@@ -59,7 +55,6 @@ if($stmt->execute()){
                 </ul>
             </nav>
         </header>
-
         <section class="perfil-info">
             <div class="foto-perfil">
                 <img id="foto-perfil" src="<?= htmlspecialchars(!empty($user_info['imagem_perfil_url']) ? $user_info['imagem_perfil_url'] : '../img/sem_foto_de_perfil.jpeg');?>" alt="Foto de perfil do usuário">
@@ -70,8 +65,7 @@ if($stmt->execute()){
                 <?php endif; ?>
                 <h2>Nome de Usuário: <?= htmlspecialchars($user_info['nome']); ?></h2>
                 <p>Email: <?= htmlspecialchars($user_info['email']);?></p>
-                <p>Biografia: <?= htmlspecialchars($user_info['biografia']);?></p>
-    
+                <p>Biografia: <?= htmlspecialchars($user_info['biografia']);?></p>   
             </div>
         </section>
         <?php if($_SESSION['tipo_usuario'] == 'admin'): ?>
@@ -103,23 +97,20 @@ if($stmt->execute()){
                 <h4>Altere sua Biografia</h4>
             </a>
         </section>
-
         <footer>
             <p>© 2025 Narrify - Clube do Livro</p>
         </footer>
     </main>
     <script>
+        //fazer o esquema de slides para mostrar as resenhas do usuário
         let index = 0;
         const slides = document.querySelectorAll('.slider-item');
-
         function mostrarProximaResenha() {
             slides[index].classList.remove('ativa');
             index = (index + 1) % slides.length;
             slides[index].classList.add('ativa');
         }
-
         setInterval(mostrarProximaResenha, 4000);
     </script>
 </body>
-
 </html>

@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Defina uma foto de perfil">
-    <meta name="keywords" contents="foto de perfil, perfil, foto de perfil do usuário">
+    <meta name="keywords" content="foto de perfil, perfil, foto de perfil do usuário">
     <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="../css/inserir_imagem_perfil.css">
     <title>Alterar imagem de perfil</title>
 </head>
-
 <body>
     <header>
         <a href="perfil.php">
@@ -35,6 +32,7 @@
         <button type="submit" aria-label="Alterar foto de perfil">Salvar</button>
     </form>
     <script>
+        //variável para tratamento de erro e verificações dos valores para exibir mensagem de erro
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');   
         if(error === "invalid_type"){
@@ -54,12 +52,10 @@
         }
         const inputFile = document.getElementById('imagem_usuario');
         const nomeArquivo = document.getElementById('nome-arquivo');
-
         inputFile.addEventListener('change', () => {
             const arquivo = inputFile.files[0];
             nomeArquivo.textContent = arquivo ? arquivo.name : 'Nenhum arquivo selecionado';
         });
     </script>
 </body>
-
 </html>

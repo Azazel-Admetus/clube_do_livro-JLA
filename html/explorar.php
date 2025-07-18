@@ -1,7 +1,7 @@
 <?php
-require_once '../php/conn.php';
-$erro = '';
-$resenhas = [];
+require_once '../php/conn.php'; // traz o arquivo de configuração de conexão
+$erro = ''; //variável para tratamento de erro
+$resenhas = []; //cria o array para colocar as resenhas
 if(isset($_GET['autor']) && !empty(trim($_GET['autor']))){
     $autor = '%' . trim($_GET['autor']) . '%';
     $stmt = $conn->prepare("SELECT id, titulo, autor_livro, sinopse FROM Livros_resenha WHERE autor_livro LIKE :autor");
@@ -25,9 +25,8 @@ if($stmt->execute()){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Explore as resenhas feitas pelos membros do clube literário Narrify">
-    <meta name="keywords" contents="Explorar, Explore, Resennhas, explorar resenhas">
+    <meta name="keywords" content="Explorar, Explore, Resennhas, explorar resenhas">
     <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
@@ -64,7 +63,6 @@ if($stmt->execute()){
                 <?php endforeach; ?>
             </div>
         </section>
-            <!-- Mais artigos de resenhas podem ser adicionados aqui -->
     </main>
     <footer>
         <a href="https://www.escolajoaquimdelima.com.br/">

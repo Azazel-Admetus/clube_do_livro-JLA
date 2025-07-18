@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Faça login no site do clube do livro Narrify - Versos e Prosa">
-    <meta name="keywords" contents="Faça login, login, página de login, login page">
+    <meta name="keywords" content="Faça login, login, página de login, login page">
     <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="../css/login.css?v=1.1">
     <title>Narrify | Login</title>
 </head>
-
 <body>
     <form action="../php/login.php" method="post">
         <header>
@@ -37,9 +34,10 @@
         </footer>
     </form>
     <script>
+        //variáveis para tratamento de erro e verificações
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');
-        if(error === 'crendenciais_invalidas'){
+        if(error === 'credenciais_invalidas'){
             alert('Usuário não encontrado ou senha incorreta');
         } else if (error === 'campos_vazios'){
             alert('Por favor, preencha corretamente todos os campos');
