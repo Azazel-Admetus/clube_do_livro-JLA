@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 :root {
     --fontemain: 'League Spartan', sans-serif;
     --fontesecond: 'Playfair Display', serif;
@@ -10,14 +11,12 @@
     --azul-escuro: #002147;
     --azul-claro: #004080;
 }
-
 /* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: var(--fontemain);
     background-color: var(--azul-escuro);
@@ -29,18 +28,15 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
-
 /* Logo */
 header {
     margin-bottom: 30px;
 }
-
 #logo-site {
     max-width: 240px;
     animation: aparecer 0.8s ease-in-out forwards;
     opacity: 0;
 }
-
 @keyframes aparecer {
     from {
         transform: translateY(-20px);
@@ -52,11 +48,9 @@ header {
         opacity: 1;
     }
 }
-
 #logo-site:hover {
     transform: scale(1.05);
 }
-
 /* Formulário */
 form {
     background-color: var(--branco);
@@ -69,24 +63,20 @@ form {
     flex-direction: column;
     gap: 15px;
 }
-
 form p {
     font-size: 16px;
     color: var(--azul-escuro);
     font-weight: bold;
     text-align: center;
 }
-
 label {
     font-weight: bold;
     color: var(--preto);
 }
-
 /* Esconde o input padrão */
 input[type="file"] {
     display: none;
 }
-
 /* Estiliza o botão de upload */
 .custom-file-label {
     background-color: var(--azul-escuro);
@@ -98,11 +88,9 @@ input[type="file"] {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .custom-file-label:hover {
     background-color: var(--azul-claro);
 }
-
 /* Mostra o nome do arquivo */
 #nome-arquivo {
     font-size: 14px;
@@ -110,8 +98,6 @@ input[type="file"] {
     text-align: center;
     margin-top: -5px;
 }
-
-
 button {
     margin-top: 10px;
     padding: 12px;
@@ -124,7 +110,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 button:hover {
     background-color: var(--azul-claro);
 }

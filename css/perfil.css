@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 :root {
     --fontemain: 'League Spartan', sans-serif;
     --fontesecond: 'Playfair Display', serif;
@@ -10,14 +11,12 @@
     --azul-escuro: #002147;
     --azul-claro: #004080;
 }
-
 /* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: var(--fontemain);
     background-color: var(--azul-escuro);
@@ -25,7 +24,6 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
-
 main {
     max-width: 1000px;
     margin: auto;
@@ -34,37 +32,31 @@ main {
     padding: 30px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
-
 /* Header */
 header {
     text-align: center;
     margin-bottom: 30px;
 }
-
 header h1 {
     color: var(--azul-escuro);
     font-size: 32px;
     margin-bottom: 15px;
 }
-
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
     gap: 30px;
 }
-
 nav a {
     text-decoration: none;
     color: var(--azul-escuro);
     font-weight: bold;
     transition: color 0.3s;
 }
-
 nav a:hover {
     color: var(--azul-claro);
 }
-
 /* Info do usuário */
 .perfil-info {
     display: flex;
@@ -73,7 +65,6 @@ nav a:hover {
     margin-bottom: 40px;
     flex-wrap: wrap;
 }
-
 .foto-perfil {
     width: 160px;
     height: 160px;
@@ -87,35 +78,28 @@ nav a:hover {
     justify-content: center;
     align-items: center;
 }
-
 .foto-perfil img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
-
-
 .dados-usuario h2 {
     color: var(--azul-escuro);
     font-size: 24px;
 }
-
 .dados-usuario p {
     font-size: 16px;
     color: #555;
 }
-
 /* Livros */
 .livros-lidos {
     margin-bottom: 30px;
 }
-
 .livros-lidos h2 {
     color: var(--azul-escuro);
     margin-bottom: 15px;
 }
-
 #card-livros {
     display: flex;
     flex-direction: column;
@@ -125,11 +109,9 @@ nav a:hover {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-
 #card-livros h3 {
     margin-bottom: 10px;
 }
-
 #imagem-livro {
     width: 120px;
     height: 180px;
@@ -137,7 +119,6 @@ nav a:hover {
     border-radius: 6px;
     background-color: #ccc;
 }
-
 /* Configurações */
 #config-user {
     display: flex;
@@ -145,7 +126,6 @@ nav a:hover {
     gap: 12px;
     margin-top: 30px;
 }
-
 #config-user a {
     text-decoration: none;
     background-color: var(--azul-escuro);
@@ -155,11 +135,9 @@ nav a:hover {
     border-radius: 8px;
     transition: background-color 0.3s;
 }
-
 #config-user a:hover {
     background-color: var(--azul-claro);
 }
-
 /* Rodapé */
 footer {
     text-align: center;
@@ -174,7 +152,6 @@ footer {
     margin: 0 auto;
     overflow: hidden;
 }
-
 .slider-item {
     display: none;
     flex-direction: column;
@@ -183,7 +160,6 @@ footer {
     transition: opacity 0.8s ease;
     opacity: 0;
 }
-
 .slider-item.ativa {
     display: flex;
     opacity: 1;
@@ -196,7 +172,6 @@ footer {
     background-color: #ccc;
     margin-bottom: 10px;
 }
-
 .slider-item h3 {
     font-size: 18px;
     color: var(--azul-escuro);
