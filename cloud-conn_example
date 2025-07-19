@@ -1,0 +1,13 @@
+<?php
+require __DIR__ . '/../vendor/autoload.php';
+
+use Cloudinary\Cloudinary;
+
+$cloudinary = new Cloudinary([
+  'cloud' => [
+    'cloud_name' => 'cloud name aqui',
+    'api_key'    => 'sua chave de API aqui',
+    'api_secret' => 'sua API secret aqui',
+  ]
+]);
+?>
