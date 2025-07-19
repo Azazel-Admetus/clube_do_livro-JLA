@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Verifique o código de identificação de identidade.">
+    <meta name="keywords" content="verificar identidade, verificação de identidade">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/verificar_codigo.css">
+    <title>Verificar Codigo</title>
+</head>
+<body>
+    <header>
+        <a id="logo" href="index.html">
+            <img src="../img/logo-secundária-removebg.png" alt="Logo do clube do Livro Narrify">
+        </a>
+    </header>
+    <form action="../php/processa_verificacao.php" method="POST">
+        <label for="codigo">Digite o código enviado:</label>
+        <input type="text" name="codigo" id="codigo" placeholder="Digite o código enviado ao seu email" required>
+        <p>Não recebeu o código? <a href="#" onclick="reenviarCodigo(); return false;" aria-label="Reenvie o código se ainda não recebeu">Reenviar Código</a></p>
+        <button type="submit" aria-label="Verificar o código de autenticação">Verificar</button>
+    </form>
+    <script>
+        //variáveis para tratamento de erro e verificação de valores para inserir a mensagem personalizada
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');   
+        if(error === "codigo_incorreto"){
+            alert("Código inválido. Tente novamente.")
+        }else if(error === "verificacao_true"){
+            alert('Verificação concluída. Seja bem-vindo!')
+        }
+        //função para reenviar o código caso o usuário não tenha recebido
+        function reenviarCodigo(){
+            fetch('../php/reenviarCodigo.php', {
+                method:'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data || "Código reenviado! Verifique seu e-mail.");
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert("Ocorreu um erro ao reenviar o código. Tente novamente.");
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Altere a biografia do perfil.">
+    <meta name="keywords" contents="alterar biografia, altere sua biografia, alterar biografia do perfil, biografia, bio, perfil">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/alterar_biografia.css">
+    <title>Altere seu nome de usuário</title>
+</head>
+<body>
+    <header>
+        <a href="perfil.php">
+            <img id="logo-site" src="../img/logo-secundária-removebg.png" alt="Logo do clube do livro Narrify">
+        </a>
+    </header>
+    <form action="../php/alterar-bio.php" method="post">
+        <h1>Defina sua Biografia</h1>
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" rows="4" cols="5" placeholder="Defina sua bio" required></textarea>
+        <div class="contador" id="contador">0 / 255</div>
+        <button type="submit" aria-label="Finalize suas alterações">Salvar</button>
+    </form>
+    <script>
+        //define as variáveis para o tratamento de erro
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('update');
+        // Tratamento de erros
+        if (error == 'empty') {
+            alert('Preencha o campo.');
+        } else if (error == 'error') {
+            alert("Erro ao tentar alterar as informações. Tente novamente.");
+        }
+        //Função para criar o efeito do contador de caracteres no input da bio
+        const bio = document.getElementById('bio'); 
+        const contador = document.getElementById('contador');
+        const form = document.querySelector('form');
+        const maxCaracteres = 255;
+        //Evento no input para exibir os números e mostrar efeitos se passar os limites de caracteres
+        bio.addEventListener('input', () => {
+            const caracteresDigitados = bio.value.length;
+            contador.textContent = `${caracteresDigitados} / ${maxCaracteres}`;
+            contador.style.color = caracteresDigitados > maxCaracteres ? 'red' : '#555';
+        });
+        //impede o usuário de enviar se transpassar o limite de caracteres, e exibe uma mensagem de erro
+        form.addEventListener('submit', function (e) {
+            if (bio.value.length > maxCaracteres) {
+                e.preventDefault(); // impede envio
+                alert('O limite máximo é de 255 caracteres.');
+            }
+        });
+    // Atualiza contador se a textarea já vier preenchida
+        contador.textContent = `${bio.value.length} / ${maxCaracteres}`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Defina uma foto de perfil">
+    <meta name="keywords" content="foto de perfil, perfil, foto de perfil do usuário">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/inserir_imagem_perfil.css">
+    <title>Alterar imagem de perfil</title>
+</head>
+<body>
+    <header>
+        <a href="perfil.php">
+            <img id="logo-site" src="../img/logo-secundária-removebg.png" alt="Logo do clube do livro Narrify">
+        </a>
+    </header>
+    <form action="../php/imagem_perfil.php" method="POST" enctype="multipart/form-data">
+        <p>Certifique que sua imagem tenha as extensões: <strong>jpg</strong>, <strong>jpeg</strong> ou
+            <strong>png</strong>.
+        </p>
+
+        <label for="imagem_usuario" class="custom-file-label">Escolha uma imagem</label>
+        <input type="file" id="imagem_usuario" name="imagem_usuario" accept=".jpg, .jpeg, .png" required>
+
+        <span id="nome-arquivo">Nenhum arquivo selecionado</span>
+
+        <button type="submit" aria-label="Alterar foto de perfil">Salvar</button>
+    </form>
+    <script>
+        //variável para tratamento de erro e verificações dos valores para exibir mensagem de erro
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');   
+        if(error === "invalid_type"){
+            alert("Tipo de arquivo inválido. Tente novamente.")
+        }else if(error === "size"){
+            alert('Tamanho do arquivo excede os limites. Tente novamente.')
+        }else if(error === "not_image"){
+            alert("Imagem inválida. Tente novamente")
+        }else if(error === "db_update_failed"){
+            alert('Falha ao inserir no banco de dados. Tente novamente.')
+        }else if(error === "upload_failed"){
+            alert("Erro ao inserir no banco dados. Tente novamente.")
+        }else if(error === "not_file"){
+            alert("Escolha um arquivo válido.")
+        }else if(error == "form"){
+            alert("Preencha todos os campos.")
+        }
+        const inputFile = document.getElementById('imagem_usuario');
+        const nomeArquivo = document.getElementById('nome-arquivo');
+        inputFile.addEventListener('change', () => {
+            const arquivo = inputFile.files[0];
+            nomeArquivo.textContent = arquivo ? arquivo.name : 'Nenhum arquivo selecionado';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Confirme sua identidade.">
+    <meta name="keywords" content="Confirmar identidade, perfil">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/autenticacao.css?v=1.1">
+    <title>Confirme sua identidade</title>
+</head>
+<body>
+    <header>
+        <a id="logo" href="index.html">
+            <img src="../img/logo-secundária-removebg.png" alt="Logo do clube do livro Narrify">
+        </a>
+    </header>
+    <form action="../php/autenticacao.php" method="POST">
+        <header>
+            <h2 class="titulo">Confirme sua identidade</h2>
+            <p class="texto">Enviaremos um código de seis digítos para seu email.</p>
+            <p class="texto"><span>IMPORTANTE! </span>Digite seu email cadastrado neste site.</p>
+        </header>
+        <section>
+            <label for="email">Digite seu email:</label>
+            <input type="email" id="email" name="email" placeholder="Digite o email cadastrado" required>
+        </section>
+        <footer>
+            <button type="submit" aria-label="Envie o formulário">Enviar</button>
+        </footer>
+    </form>
+</body>
+</html>

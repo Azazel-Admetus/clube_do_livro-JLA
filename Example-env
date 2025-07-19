@@ -1,0 +1,4 @@
+# .env.example
+EMAIL_USERNAME= coloque aqui o email
+EMAIL_PASSWORD= coloque aqui a senha do email. Lembre-se que não é a senha do email em si, e sim a senha de app gerada pelo google
+EMAIL_FROM_NAME= "aqui você coloca o nome do remetente"
