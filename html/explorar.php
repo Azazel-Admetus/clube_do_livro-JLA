@@ -30,6 +30,7 @@ if($stmt->execute()){
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/explorar.css?v=1.2">
     <title>Explore as resenhas criadas</title>
 </head>

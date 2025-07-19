@@ -48,6 +48,7 @@ if($stmt->execute()){
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/resenha.css?v=1.0">
     <title>Resenhas literárias</title>
 </head>
