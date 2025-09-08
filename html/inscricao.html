@@ -120,6 +120,12 @@
                 vespertinoSelect.style.display = 'none';
             }
         });
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('processo');   
+        //faz a verificação do valor da variável para tratamento de erro
+        if(error === "erro"){
+            alert("Erro ao tentar salvar o formulário de inscrição. Tente novamente mais tarde");
+        }
     </script>
 </body>
 </html>

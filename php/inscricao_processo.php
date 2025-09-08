@@ -19,10 +19,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $stmt->bindParam(':AutorLivro', $autorLivro);
     $stmt->bindParam(':Resenha', $resenha);
     if($stmt->execute()){
-        header('Location:../html/home.php?inscricao=concluida');
+        header('Location:../html/loading.html?msg=Salvando...&redirect=../html/home.php?processo=concluida');
         exit();
     } else{
-        header('Location:../html/home.php?inscricao=erro');
+        header('Location:../html/loading.html?msg=Salvando...&redirect=../html/inscricao.html?processo=erro');
         exit();
     }
 }

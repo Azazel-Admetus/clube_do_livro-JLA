@@ -95,6 +95,8 @@ if($stmt->execute()){
             alert("Seja bem-vindo(a)!")
         }else if(error === "verificacao_true"){
             alert('Verificação concluída. Seja bem-vindo!')
+        }else if(error == "concluida"){
+            alert("Inscrição feita. Retornaremos em até 14 dias com a resposta. Enquanto isso, aproveite os recursos de nosso site")
         }
         // pega a div resenha class para fazer o esquema do slide
         const resenhas = document.querySelectorAll('.resenha-card');
