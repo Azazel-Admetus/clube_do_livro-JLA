@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/inscricao.css">
+    <title>Inscrições - Narrify</title>
+</head>
+<body>
+    <header id="header-principal">
+        <img src="../img/logo-secundária-removebg.png" alt="logo do clube">
+        <a href="home.php">
+            <img src="../img/home icon.svg" alt="ícone de casa. Serve como um link que redireciona para a página inicial">
+        </a>
+    </header>
+    <main>
+        <div>
+            <h1>Como faço minha inscrição?</h1>
+            <p>Preencha todos os campos necessários no formulário abaixo. Informe seu nome completo, sua série e turma. Escolha um livro que goste e faça uma resenha sobre ele.</p>
+        </div>
+        <div>
+            <h2>Como devo fazer essa resenha?</h2>
+            <p>Escreva sobre o que você leu, entendeu e gostou do livro. É importante salientar que não queremos resumos. Queremos saber como foi a sua leitura. Queremos saber se você gostou dos personagens, enredo, escrita do autor, ou se odiou todas essas características. Tudo que queremos é saber que você de fato leu o livro, e é fazedo dessa forma que você irá nos mostrar que leu</p>
+        </div>
+    </main>
+    <form action="inscricao_processo.php" method="POST">
+        <header>
+            <h2>Formulário de inscrição</h2>
+            <p>Preencha o formulário para se inscrever para participar do clube do livro</p>
+        </header>
+        <section>
+            <div id="info_estudante">
+                <div>
+                    <label for="nome-estudante">Nome completo</label>
+                    <input type="text" id="nome-estudante" name="nome_estudante" required placeholder="Digite seu nome completo">
+                </div>
+                <div>
+                    <div>
+                        <label id="matutino">Matutino</label>
+                        <input type="checkbox" name="turno" value="matutino" id="matutino">
+                        <label id="vespertino">Vespertino</label>
+                        <input type="checkbox" name="turno" value="vespertino" id="vespertino">
+                    </div>
+                    <div>
+                        <select name="serie" class="serie">
+                            <option disabled selected>Turma Matutina</option>
+                            <option name="serie" value="1M1">1º M1</option>
+                            <option name="serie" value="1M2">1º M2</option>
+                            <option name="serie" value="1M3">1º M3</option>
+                            <option name="serie" value="2M1">2º M1</option>
+                            <option name="serie" value="2M2">2º M2</option>
+                            <option name="serie" value="2M3">2º M3</option>
+                            <option name="serie" value="2M4">2º M4</option>
+                            <option name="serie" value="3M1">3º M1</option>
+                            <option name="serie" value="3M2">3º M2</option>
+                            <option name="serie" value="3M3">3º M3</option>
+                            <option name="serie" value="3M4">3º M4</option>
+                        </select>
+                        <select name="serie" class="serie">
+                            <option disabled selected>Turma Vespertina</option>
+                            <option name="serie" value="">1º T1</option>
+                            <option name="serie" value="">1º T2</option>
+                            <option name="serie" value="">1º T3</option>
+                            <option name="serie" value="">1º T4</option>
+                            <option name="serie" value="">2º T1</option>
+                            <option name="serie" value="">2º T2</option>
+                            <option name="serie" value="">2º T3</option>
+                            <option name="serie" value="">2º T4</option>
+                            <option name="serie" value="">3º T1</option>
+                            <option name="serie" value="">3º T2</option>
+                            <option name="serie" value="">3º T3</option>
+                            <option name="serie" value="">3º T4</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="info-livro">
+                <div>
+                    <label for="nome-livro">Nome do livro</label>
+                    <input type="text" id="nome-livro" name="nome_livro" required placeholder="Digite o nome do livro">
+                </div>
+                <div>
+                    <label for="autor-livro">Autor do livro</label>
+                    <input type="text" id="autor-livro" name="autor_livro" required placeholder="Digite o nome do autor do livro">
+                </div>
+            </div>
+            <div id="resenha">
+                <label for="resenha-livro">Resenha do livro</label>
+                <textarea id="resenha-livro" name="resenha_livro" required placeholder="Escreva uma resenha sobre o livro que você escolheu" rows="5" cols="200"></textarea>
+            </div>
+        </section>
+        <button type="submit">Enviar Formulário</button>
+    </form>
+    <footer>
+        <h2>Após enviar a inscrição, retornaremos em até 14 dias para lhe dar a resposta</h2>
+        <a href="https://www.escolajoaquimdelima.com.br"><img src="../img/Logo-JLA.jpg" alt="logo da Escola Joaquim de Lima Avelino" class="logo-fixa"></a>
+    </footer>
+    
+</body>
+</html>
