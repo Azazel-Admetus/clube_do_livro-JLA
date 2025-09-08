@@ -56,6 +56,17 @@ nav ul {
 .link:hover {
     color: var(--branco);
 }
+/* link para inscricao  */
+#inscricao {
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 28px;
+    transition: color 0.3s;
+}
+#inscricao:hover {
+    text-decoration: underline;
+}
 /* ---------- Introdução ---------- */
 #introduction {
     background-color: var(--color-primary);

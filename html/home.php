@@ -46,6 +46,12 @@ if($stmt->execute()){
                 </ul>
             </nav>
         </header>
+        <section id="introduction" aria-label="Introdução ao site">
+            <div id="div-intro">
+                <h2 class="titulo">Se inscreva agora para participar do clube do livro - Narrify!</h2>
+                <a id="inscricao" href="inscricao.html">Clique aqui</a>
+            </div>
+        </section>
         <section class="apresentacao">
             <h1>Bem-vindo ao Clube Literário Narrify - Versos e Prosa</h1>
             <p>Leia, compartilhe e descubra novas histórias com a nossa comunidade literária.</p>

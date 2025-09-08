@@ -209,3 +209,24 @@ section:last-of-type h2 {
 .email{
     font-size: 25px;
 }
+
+/* para inscricao  */
+#introduction {
+    background-color: var(--color-primary);
+    text-align: center;
+    padding: 60px 20px;
+}
+#div-intro {
+    max-width: 800px;
+    margin: 0 auto;
+}
+#inscricao {
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 28px;
+    transition: color 0.3s;
+}
+#inscricao:hover {
+    text-decoration: underline;
+}
