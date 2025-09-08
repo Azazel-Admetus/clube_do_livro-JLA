@@ -36,14 +36,14 @@
                 </div>
                 <div>
                     <div>
-                        <label id="matutino">Matutino</label>
+                        <label for="matutino">Matutino</label>
                         <input type="checkbox" name="turno" value="matutino" id="matutino">
-                        <label id="vespertino">Vespertino</label>
+                        <label for="vespertino">Vespertino</label>
                         <input type="checkbox" name="turno" value="vespertino" id="vespertino">
                     </div>
                     <div>
-                        <select name="serie" class="serie">
-                            <option disabled selected>Turma Matutina</option>
+                        <select name="serie" class="serie" id="turno_matutino">
+                            <option disabled selected>Turma Matutino</option>
                             <option name="serie" value="1M1">1º M1</option>
                             <option name="serie" value="1M2">1º M2</option>
                             <option name="serie" value="1M3">1º M3</option>
@@ -56,8 +56,8 @@
                             <option name="serie" value="3M3">3º M3</option>
                             <option name="serie" value="3M4">3º M4</option>
                         </select>
-                        <select name="serie" class="serie">
-                            <option disabled selected>Turma Vespertina</option>
+                        <select name="serie" class="serie" id="turno_vespertino">
+                            <option disabled selected>Turma Vespertino</option>
                             <option name="serie" value="">1º T1</option>
                             <option name="serie" value="">1º T2</option>
                             <option name="serie" value="">1º T3</option>
@@ -95,6 +95,31 @@
         <h2>Após enviar a inscrição, retornaremos em até 14 dias para lhe dar a resposta</h2>
         <a href="https://www.escolajoaquimdelima.com.br"><img src="../img/Logo-JLA.jpg" alt="logo da Escola Joaquim de Lima Avelino" class="logo-fixa"></a>
     </footer>
-    
+    <script>
+        const matutinoCheckBox = document.getElementById("matutino");
+        const vespertinoCheckBox = document.getElementById("vespertino");
+        const matutinoSelect = document.getElementById("turno_matutino");
+        const vespertinoSelect = document.getElementById("turno_vespertino");
+
+        matutinoCheckBox.addEventListener('change', function(){
+            if(this.checked){
+                matutinoSelect.style.display = 'block';
+                vespertinoSelect.style.display = 'none';
+                vespertinoCheckBox.checked = false;
+            } else{
+                matutinoSelect.style.display = 'none';
+            }
+        });
+
+        vespertinoCheckBox.addEventListener('change', function() {
+            if(this.checked){
+                vespertinoSelect.style.display = 'block';
+                matutinoSelect.style.display = 'none';
+                matutinoCheckBox.checked = false;
+            } else{
+                vespertinoSelect.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

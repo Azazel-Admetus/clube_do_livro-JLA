@@ -153,3 +153,7 @@ footer img.logo-fixa {
     bottom: 20px;
     z-index: 1000;
 }
+/* vamos fazer o esquema dos select escondido agora */
+#turno_matutino, #turno_vespertino{
+    display: none;
+}
