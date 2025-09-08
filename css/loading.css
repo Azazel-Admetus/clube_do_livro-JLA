@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+:root {
+  --fontemain: 'League Spartan', sans-serif;
+  --fontesecond: 'Playfair Display', serif;
+  --color-primary: #e8d8c4;
+  --color-secondary: #1c3a57;
+  --color-terceira: #dcccb3;
+  --color-quarta: #e0e0e0;
+  --preto : #000000;
+  --branco : #ffffff;
+  --azul-escuro: #002147;
+  --azul-claro: #004080;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  background-color:var(--azul-escuro);
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  padding-top: 100px;
+}
+.loader {
+  border: 8px solid var(--azul-claro);
+  border-top: 8px solid var(--color-terceira);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 30px auto;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

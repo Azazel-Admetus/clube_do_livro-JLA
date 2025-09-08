@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto: #000000;
+    --branco: #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--fontemain);
+    background-color: var(--azul-escuro);
+    color: var(--preto);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    margin-bottom: 20px;
+}
+
+#logo-site {
+    width: 180px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+main {
+    background-color: var(--branco);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+}
+main h1 {
+    font-size: 28px;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+    text-align: center;
+}
+main p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+label {
+    font-weight: bold;
+    color: var(--preto);
+}
+input[type="text"],
+textarea {
+    padding: 10px;
+    border: 1px solid var(--color-quarta);
+    border-radius: 6px;
+    font-size: 14px;
+    resize: vertical;
+}
+input:focus,
+textarea:focus {
+    border-color: var(--azul-claro);
+    outline: none;
+}
+/* Estilo do input file */
+input[type="file"] {
+    display: none;
+}
+.custom-file-label {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.custom-file-label:hover {
+    background-color: var(--azul-claro);
+}
+#nome-capa {
+    font-size: 14px;
+    color: var(--preto);
+    text-align: center;
+}
+button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: var(--azul-claro);
+}

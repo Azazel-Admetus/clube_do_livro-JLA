@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Faça login no site do clube do livro Narrify - Versos e Prosa">
+    <meta name="keywords" content="Faça login, login, página de login, login page">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/login.css?v=1.1">
+    <title>Narrify | Login</title>
+</head>
+<body>
+    <form action="../php/login.php" method="post">
+        <header>
+            <h2>Seja bem-vindo de volta!</h2>
+            <p>Faça login para poder interagir com os posts</p>
+        </header>
+        <section>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            <button type="submit" aria-label="Faça login">Entrar</button>
+        </section>
+        <footer>
+            <p>Ainda não possui uma conta? Então <a href="cadastro.html" aria-label="Se não possui uma conta, faça já o seu cadastro">Cadastre-se!</a></p>
+            <a id="esqueceu-senha" href="../php/redirecionador.php?fluxo=esqueci_senha" aria-label="Esqueceu sua senha? Redefina ela por aqui">Esqueceu sua senha?</a>
+        </footer>
+    </form>
+    <script>
+        //variáveis para tratamento de erro e verificações
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        if(error === 'credenciais_invalidas'){
+            alert('Usuário não encontrado ou senha incorreta');
+        } else if (error === 'campos_vazios'){
+            alert('Por favor, preencha corretamente todos os campos');
+        } else if(error === "user_exists"){
+            alert('Usuário já existente. Faça login')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+**/conn.php
+**/cloud-conn.php
+vendor/
+.env

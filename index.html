@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Faça login ou se cadastre para fazer parte da comunidade literária">
+    <meta name="keywords" content="index page, página inicial, Narrify, NarrifyJLA, Narrify.JLA, Narrify.jla, Narrifyjla, Narrify - Versos e Prosa">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="img/logo_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css?v=1.2">
+    <title>Narrify - Versos e Prosa</title>
+</head>
+<body>
+    <main>
+        <header>
+            <img src="img/logo-secundária-removebg.png" alt="Logo do Clube do Livro">
+            <nav aria-label="Barra de navegação">
+                <ul>
+                    <li>
+                        <a class="link" href="html/login.html">Login</a>
+                    </li>
+                    <span>|</span>
+                    <li>
+                        <a class="link" href="html/cadastro.html">Cadastro</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section id="introduction" aria-label="Introdução ao site">
+            <div id="div-intro">
+                <h2 class="titulo">Seja muito bem-vindo!</h2>
+                <p class="texto">Este é o site oficial do clube do livro da escola Joaquim de Lima Avelino. Por aqui
+                    postaremos sobre nossas atividades, feedbacks de livro e muito mais</p>
+            </div>
+        </section>
+        <div id="main-content" aria-label="Conteúdo principal do site">
+            <section id="content">
+                <h2 class="titulo">O que você irá encontrar por aqui?</h2>
+                <div id="javascript">
+                    <h3 class="titulo"></h3>
+                    <p class="texto"></p>
+                </div>
+            </section>
+            <section id="info">
+                <h2 class="titulo">Quem somos nós?</h2>
+                <p class="texto">Criado em 2023, o objetivo do clube é resgatar a cultura da leitura entre os
+                    estudantes. De lá para cá, o clube passou por problemas de gestão, e agora com uma nova equipe ele
+                    vem sendo reestruturado. A proposta original não mudou e essa nova gestão se compromete em não
+                    somente honrar o legado do clube, como trazer inovações tecnológicas, afim de afirmar a posição do
+                    clube na escola por muito mais anos. </p>
+                <p class="texto">O clube é formado por alunos do ensino médio. A gestão também é constituída por alunos,
+                    eles ocupam a posição de presidente, vice-presidente e líder. O cargo de conselheiro somente poderá
+                    ser ocupado por um professor. As mídias do clube são administradas pelos gestores e membros da
+                    equipe de marketing NexoFY da escola. O clube também possui um regimento interno que rege o
+                    funcionamento do clube. </p>
+            </section>
+        </div>
+        <section id="admin">
+            <h2 class="titulo"> Atual gestão</h2>
+            <div class="cargos">
+                <div>
+                    <label for="presidente">Presidente:</label>
+                    <a href="https://www.instagram.com/azazel_admetus/">
+                        <h5 id="presidente">Gustavo</h5>
+                    </a>
+                </div>
+                <div>
+                    <label for="vice">Vice-Presidente:</label>
+                    <a href="https://www.instagram.com/nailliw_morningstar/">
+                        <h5>Max</h5>
+                    </a>
+                </div>
+                <div>
+                    <label for="conselheiro">Conselheiro:</label>
+                    <a href="https://www.instagram.com/soraya.cristina.710/">
+                        <h5>Profª. Soraya</h5>
+                    </a>
+                </div>
+                <div>
+                    <label for="lider">Líder:</label>
+                    <a href="#">
+                        <h5>Sem ocupante</h5>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div>
+                <a class="link" href="https://instagram.com/narrify_jla/" aria-label="Acesse o instagram do clube">
+                    <h6 class="link-inferior">Instagram: @narrify_jla</h6>
+                </a>
+                <a class="link" href="mailto:narrify.jla@gmail.com" aria-label="Entre em contato com os administradores">
+                    <h6 class="link-inferior">Email: narrify.jla@gmail.com</h6>
+
+                </a>
+            </div>
+            <a href="https://www.escolajoaquimdelima.com.br/">
+                <img src="img/Logo-JLA.jpg" alt="logo da Escola Joaquim de Lima Avelino" class="imagem-circular">
+            </a>
+        </footer>
+    </main>
+    <script>
+        const div = document.getElementById('javascript');
+        let conteudos = [];
+        let index = 0;
+        fetch('javascript/index.csv')
+            .then(response => response.text())
+            .then(text => {
+                const linhas = text.trim().split('\n').slice(1);
+                conteudos = linhas.map(linha => {
+                    const [titulo, ...descricaoArr] = linha.split(',');
+                    const descricao = descricaoArr.join(',');
+                    return { titulo: titulo.trim(), descricao: descricao.trim() };
+                });
+                mostrarConteudo();
+                setInterval(mostrarConteudo, 5000);
+            });
+        function mostrarConteudo() {
+            if (conteudos.length === 0) return;
+            div.style.opacity = 0;
+            setTimeout(() => {
+                const { titulo, descricao } = conteudos[index];
+                div.innerHTML = `<h3 class="titulo">${titulo}</h3><p class="texto">${descricao}</p>`;
+
+                index = (index + 1) % conteudos.length;
+                div.style.opacity = 1;
+            }, 500);
+        }
+    </script>
+</body>
+</html>

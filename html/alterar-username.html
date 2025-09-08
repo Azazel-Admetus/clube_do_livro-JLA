@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Altere o nome de usuário.">
+    <meta name="keywords" content="alterar nome de usuário, alterar username, altere seu nome de usuário, username, nome de usuário, perfil">
+    <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/alterar-username.css">
+    <title>Altere seu nome de usuário</title>
+</head>
+<body>
+    <header>
+        <a href="perfil.php">
+            <img id="logo-site" src="../img/logo-secundária-removebg.png" alt="Logo do clube do livro Narrify">
+        </a>
+    </header>
+    <form action="../php/alterar-username.php" method="post">
+        <p>Escolha um novo nome</p>
+
+        <label for="nome">Nome:</label>
+        <input id="nome" name="nome" placeholder="Mude seu nome de usuário" required>
+
+        <button type="submit" aria-label="Finalize suas alterações">Salvar</button>
+    </form>
+    <script>
+        //variáveis para tratamento de erros
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('insert');
+        // faz a verificação do valor da variável
+        if (error == 'erro') {
+            alert('Erro ao tentar fazer alterações. Tente novamente.');
+        }
+    </script>
+</body>
+</html>

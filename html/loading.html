@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Página de carregamento">
+  <meta name="keywords" content="loading, loading page, página de carregamento">
+  <meta name="author" content="Site criado por: Azazel Admetus e Kenzo_Susuna">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="pt-BR">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/loading.css">
+  <title>Carregando...</title>
+</head>
+<body>
+  <div class="loader" aria-label="Ícone de carregamento"></div>
+  <p id="msg">Carregando...</p>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const msg = urlParams.get('msg') || 'Carregando...'; //busca o parâmetro e define um valor padrão caso não tenha
+    const redirect = urlParams.get('redirect') || '../index.html'; //busca o parâmetro de url e define uma url padrão caso não tenha valor no parâmetro
+    document.getElementById('msg').textContent = msg; //pega a tag html para inserir o valor da variável com a mensagem
+    setTimeout(() => {
+      window.location.href = redirect; //redireciona
+    }, 1500); // tempo de carregamento de 1,5s
+  </script>
+</body>
+</html>

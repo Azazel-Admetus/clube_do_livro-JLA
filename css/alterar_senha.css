@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto: #000000;
+    --branco: #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--fontemain);
+    background-color: var(--azul-escuro);
+    color: var(--preto);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+header {
+    margin-bottom: 30px;
+}
+#logo-site {
+    max-width: 240px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: aparecer 0.8s ease-in-out forwards;
+    opacity: 0;
+}
+/* Animação de fade-in */
+@keyframes aparecer {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Formulário */
+form {
+    background-color: var(--branco);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+form h2 {
+    font-size: 18px;
+    color: var(--azul-escuro);
+    text-align: center;
+}
+label {
+    font-weight: bold;
+    color: var(--preto);
+}
+input {
+    padding: 10px;
+    border: 1px solid var(--color-quarta);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+input:focus {
+    border-color: var(--azul-claro);
+    outline: none;
+}
+button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: var(--azul-claro);
+}

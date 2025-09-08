@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto : #000000;
+    --branco : #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:#f8f1e7
+
+}
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1%;
+    margin: 1%;;
+    align-items: center;
+    background-color: var(--color-terceira);
+    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    gap: 10px;
+}
+.busca {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+.busca input {
+    flex: 1;
+    min-width: 200px;
+}
+img{
+    width: 200px;
+    height: auto;
+}
+label{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:20px;
+    color: var(--color-secondary);
+}
+input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--color-secondary);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-secondary);
+    color: var(--branco);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+.resenhas_wrapper {
+    padding: 40px;
+    width: 100%;
+}
+.resenhas_wrapper h1 {
+    font-family: var(--fontesecond);
+    color: var(--color-secondary);
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.card_resenhas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 10px;
+    background-color: transparent;
+}
+.resenha {
+    background-color: var(--color-primary);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position:relative;
+}
+.titulo {
+    font-family: var(--fontesecond);
+    font-size: 24px;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+.descricao {
+    font-family: var(--fontemain);
+    color: var(--color-secondary);
+    font-size: 16px;
+    text-align: justify;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 8; /* Limita a 8 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.link_resenha {
+    font-family: var(--fontemain);
+    text-decoration: none;
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+.link_resenha:hover {
+    background-color: var(--color-secondary);
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 1%;
+}
+footer img{
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+    width: 80px; 
+    height: auto;
+    z-index: 1000; 
+    border-radius: 50%;
+}
+.resenha-conteudo .link_resenha {
+    align-self: flex-start;
+    color: var(--azul-claro);
+    text-decoration: none;
+    font-weight: bold;
+}

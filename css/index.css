@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* ---------- Variáveis ---------- */
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto: #000000;
+    --branco: #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+/* ---------- Reset ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* ---------- Corpo ---------- */
+body {
+    font-family: var(--fontemain);
+    background-color: var(--color-terceira);
+    color: var(--preto);
+    line-height: 1.6;
+}
+/* ---------- Cabeçalho ---------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border-bottom: 3px solid var(--color-primary);
+    flex-wrap: wrap;
+}
+header img {
+    height: 100px;
+    width: auto;
+}
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+.link {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+.link:hover {
+    color: var(--branco);
+}
+/* ---------- Introdução ---------- */
+#introduction {
+    background-color: var(--color-primary);
+    text-align: center;
+    padding: 60px 20px;
+}
+#div-intro {
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* ---------- Conteúdo Principal ---------- */
+#main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 50px 5%;
+    background-color: var(--branco);
+    gap: 40px;
+}
+#content,
+#info {
+    flex: 1 1 400px;
+    background-color: var(--color-quarta);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+#content {
+    max-width: 500px;
+}
+#info {
+    max-width: 600px;
+}
+/* ---------- Caixa JavaScript ---------- */
+#javascript {
+    border: 2px solid var(--azul-escuro);
+    background-color: var(--branco);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: box-shadow 0.3s;
+}
+#javascript:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+#javascript p {
+    color: var(--preto);
+}
+/* ---------- Administração ---------- */
+#admin {
+    background-color: var(--color-primary);
+    padding: 50px 20px;
+    text-align: center;
+}
+#admin .cargos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+#admin a {
+    font-family: var(--fontesecond);
+    color: var(--azul-escuro);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+#admin a:hover {
+    color: var(--azul-claro);
+}
+/* ---------- Rodapé ---------- */
+footer {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    flex-wrap: wrap;
+}
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+footer img {
+    height: 90px;
+    width: auto;
+}
+/* ---------- Títulos e Texto ---------- */
+.titulo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+.texto {
+    font-size: 16px;
+    color: var(--preto);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+/* ---------- Responsividade ---------- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav ul {
+        justify-content: center;
+    }
+    #main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    #content,
+    #info {
+        width: 100%;
+        max-width: 100%;
+    }
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+/* ---------- Imagem Circular no Canto Inferior Direito ---------- */
+.imagem-circular {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.85;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.imagem-circular {
+    opacity: 1;
+    transform: scale(1.05);
+}
+.link-inferior {
+    color: var(--color-terceira);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 16px;
+}
+.link-inferior:hover {
+    color: var(--branco);
+}

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto : #000000;
+    --branco : #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--azul-escuro);
+}
+form {
+    background-color:var(--branco);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgb(0, 0, 0);
+
+    max-width: 400px;
+}
+img{
+    margin-top:-200px;
+    width: 300px;
+    height: 300px;
+}
+header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+header h2 {
+    color: var(--color-secondary);
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+header p {
+    font-size: 20px;
+    color: #555;
+}
+section {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+    font-size:25px ;
+}
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border 0.3s;
+}
+input:focus {
+    border-color: var(--azul-escuro)
+    ;
+    outline: none;
+}
+button {
+    margin-top: 20px ;
+    padding: 12px 20px;
+    background-color:var(--azul-escuro);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: var(--azul-claro);
+}
+footer{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+span{
+    font-weight: bold;
+    color: var(--color-secondary);
+}

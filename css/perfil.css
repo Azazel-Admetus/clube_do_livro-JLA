@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto: #000000;
+    --branco: #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--fontemain);
+    background-color: var(--azul-escuro);
+    color: var(--preto);
+    min-height: 100vh;
+    padding: 20px;
+}
+main {
+    max-width: 1000px;
+    margin: auto;
+    background: var(--branco);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+header h1 {
+    color: var(--azul-escuro);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+nav a {
+    text-decoration: none;
+    color: var(--azul-escuro);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: var(--azul-claro);
+}
+/* Info do usuário */
+.perfil-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+.foto-perfil {
+    width: 160px;
+    height: 160px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--color-primary);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.dados-usuario h2 {
+    color: var(--azul-escuro);
+    font-size: 24px;
+}
+.dados-usuario p {
+    font-size: 16px;
+    color: #555;
+}
+/* Livros */
+.livros-lidos {
+    margin-bottom: 30px;
+}
+.livros-lidos h2 {
+    color: var(--azul-escuro);
+    margin-bottom: 15px;
+}
+#card-livros {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-quarta);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+#card-livros h3 {
+    margin-bottom: 10px;
+}
+#imagem-livro {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #ccc;
+}
+/* Configurações */
+#config-user {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+}
+#config-user a {
+    text-decoration: none;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+#config-user a:hover {
+    background-color: var(--azul-claro);
+}
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777;
+}
+.slider-slider {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* limite para as resenhas no perfil */
+    margin: 0 auto;
+    overflow: hidden;
+}
+.slider-item {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.8s ease;
+    opacity: 0;
+}
+.slider-item.ativa {
+    display: flex;
+    opacity: 1;
+}
+.slider-item img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+}
+.slider-item h3 {
+    font-size: 18px;
+    color: var(--azul-escuro);
+}
+.resenha-slider a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
