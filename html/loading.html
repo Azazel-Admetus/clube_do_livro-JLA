@@ -20,7 +20,7 @@
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg') || 'Carregando...'; //busca o parâmetro e define um valor padrão caso não tenha
-    const redirect = urlParams.get('redirect') || '../index.php'; //busca o parâmetro de url e define uma url padrão caso não tenha valor no parâmetro
+    const redirect = urlParams.get('redirect') || '../index.html'; //busca o parâmetro de url e define uma url padrão caso não tenha valor no parâmetro
     document.getElementById('msg').textContent = msg; //pega a tag html para inserir o valor da variável com a mensagem
     setTimeout(() => {
       window.location.href = redirect; //redireciona
