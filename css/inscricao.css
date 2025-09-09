@@ -10,6 +10,9 @@
     --branco : #ffffff;
     --azul-escuro: #002147;
     --azul-claro: #004080;
+    --color-dark: #222;
+    --color-light: #ffffff;
+    --color-accent: #004080;
 }
 * {
     margin: 0;
@@ -18,141 +21,120 @@
 }
 body{
     background-color: var(--color-primary);
+    font-family: var(--fontemain);
+    line-height: 1.6;
+    color: var(--color-dark);
 }
 /* vamos estilizar o header */
 #header-principal {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: var(--azul-escuro);
+    justify-content: space-between;
+    background-color: var(--color-secondary);
     align-items: center;
+    padding: 10px 5%;
 }
 #header-principal img {
-    height: 100px;
+    height: 80px;
     width: auto;
-    padding: 10px 20px;
 }
 /* vamos estilizar a introdução do site */
 main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width:900px;
+    margin: 40px auto;
+    padding:0 20px;
     text-align: center;
-    padding: 2%;
 
 }
-main h1, h2{
+main h1, main h2{
     font-family: var(--fontesecond);
-    font-size: 35px;
     color: var(--azul-claro);
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin-bottom: 15px;
 }
 main p{
-    font-family: var(--fontemain);
+    margin-bottom: 25px;
     font-size: 20px;
-    color: var(--preto);   
     text-align: justify;
 }
 /* vamos estilizar o formulário agora */
 form{
-    align-items: center;
-    text-align: center;
-    border: solid 3px var(--azul-escuro);
+    background-color: var(--color-light) ;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 form p{
-    font-family: var(--fontemain);
-    font-size: 20px;
-    color: var(--preto);   
-    text-align: center;
+    font-size: 16px;  
+    color: #444;
 }
 form header{
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
-/* vamos estilizar a seção dos estudantes */
+form h2{
+    font-family: var(--fontesecond);
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+/* campos do formulário */
 label{
-    font-family: var(--fontemain);
-    font-size: 22px;
-    color: var(--azul-claro);
-    font-weight: bolder;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--color-accent);
 }
-input{
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    transition: border 0.3s;
+input, select, textarea{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border:  1px solid #ccc;
+    border-radius:  8px;
+    font-size: 16px;
+    transition: all 0.3s;
 }
-input:focus {
-    border-color: #002147;
+input:focus, select:focus,textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow:  0 0 5px rgba(0,64,128,0.3);
     outline: none;
 }
-#info_estudante{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-}
-#info-livro{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
-textarea {
-    width: 100%;
-    max-width: 600px;
-    min-width: 200px;
-    box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 18px;
-    resize: vertical;
-}
+/* botão */
 button {
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #002147;
-    color: white;
-    border: none;
-    border-radius: 6px;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
     font-weight: bold;
+    background: var(--color-secondary);
+    color: var(--color-light);
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    margin-bottom: 15px;
+    transition: all 0.3s;
 }
 button:hover {
-    background-color: #004080;
+    background: var(--color-accent);
+    transform: scale(1.02);
 }
-/* vamos estilizar o footer */
-footer {
-    background-color: var(--azul-escuro);
-    display: flex;
-    flex-direction: row;
 
-}
-footer h2{
-    color: var(--color-primary);
-    font-size: 27px;
-    padding: 2%;
+/* footer */
+footer {
+    margin-top: 60px;
+    background: var(--color-secondary);
+    color: var(--color-light);
+    text-align: center;
+    padding: 20px;
+    position: relative;
 }
 footer img.logo-fixa {
-    width: 80px;   /* ajuste o tamanho como quiser */
+    width: 70px;   /* ajuste o tamanho como quiser */
     height: auto;
-    box-shadow: none;
     border-radius: 50%;
     position: fixed;
     right: 20px;
     bottom: 20px;
     z-index: 1000;
 }
+
 /* vamos fazer o esquema dos select escondido agora */
 #turno_matutino, #turno_vespertino{
     display: none;
