@@ -210,23 +210,59 @@ section:last-of-type h2 {
     font-size: 25px;
 }
 
-/* para inscricao  */
-#introduction {
-    background-color: var(--color-primary);
+/* ---------- Anúncio de Inscrição ---------- */
+#announcement {
+    background: linear-gradient(135deg, var(--azul-escuro), var(--azul-claro));
+    color: var(--branco);
     text-align: center;
     padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
-#div-intro {
+
+.announcement-box {
     max-width: 800px;
     margin: 0 auto;
+    animation: fadeInDown 1s ease;
 }
-#inscricao {
-    text-decoration: none;
-    color: var(--color-secondary);
+
+#announcement h2 {
+    font-size: 32px;
     font-weight: bold;
-    font-size: 28px;
-    transition: color 0.3s;
+    margin-bottom: 15px;
 }
-#inscricao:hover {
-    text-decoration: underline;
+
+#announcement p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.btn-inscricao {
+    display: inline-block;
+    padding: 14px 30px;
+    background-color: var(--color-primary);
+    color: var(--azul-escuro);
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-inscricao:hover {
+    background-color: var(--branco);
+    transform: scale(1.05);
+}
+
+/* animação de entrada */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

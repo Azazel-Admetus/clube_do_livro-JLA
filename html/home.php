@@ -46,10 +46,11 @@ if($stmt->execute()){
                 </ul>
             </nav>
         </header>
-        <section id="introduction" aria-label="Introdução ao site">
-            <div id="div-intro">
-                <h2 class="titulo">Se inscreva agora para participar do clube do livro - Narrify!</h2>
-                <a id="inscricao" href="inscricao.html">Clique aqui</a>
+        <section id="announcement">
+            <div class="announcement-box">
+                <h2>📚 Inscrições Abertas para o Clube do Livro – Narrify!</h2>
+                <p>Participe da comunidade literária e faça parte dessa nova jornada.</p>
+                <a class="btn-inscricao" href="html/inscricao.html">Quero me inscrever</a>
             </div>
         </section>
         <section class="apresentacao">
