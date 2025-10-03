@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto : #000000;
+    --branco : #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+    --color-dark: #222;
+    --color-light: #ffffff;
+    --color-accent: #004080;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--color-primary);
+    font-family: var(--fontemain);
+    line-height: 1.6;
+    color: var(--color-dark);
+}
+/* vamos estilizar o header */
+#header-principal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: var(--color-secondary);
+    align-items: center;
+    padding: 10px 5%;
+}
+#header-principal img {
+    height: 80px;
+    width: auto;
+}
+/* vamos estilizar a introdução do site */
+main{
+    max-width:900px;
+    margin: 40px auto;
+    padding:0 20px;
+    text-align: center;
+
+}
+main h1, main h2{
+    font-family: var(--fontesecond);
+    color: var(--azul-claro);
+    margin-bottom: 15px;
+}
+main p{
+    margin-bottom: 25px;
+    font-size: 20px;
+    text-align: justify;
+}
+/* vamos estilizar o formulário agora */
+form{
+    background-color: var(--color-light) ;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+form p{
+    font-size: 16px;  
+    color: #444;
+}
+form header{
+    margin-bottom: 20px;
+}
+form h2{
+    font-family: var(--fontesecond);
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+/* campos do formulário */
+label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--color-accent);
+}
+input, select, textarea{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border:  1px solid #ccc;
+    border-radius:  8px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+input:focus, select:focus,textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow:  0 0 5px rgba(0,64,128,0.3);
+    outline: none;
+}
+/* botão */
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background: var(--color-secondary);
+    color: var(--color-light);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+button:hover {
+    background: var(--color-accent);
+    transform: scale(1.02);
+}
+
+/* footer */
+footer {
+    margin-top: 60px;
+    background: var(--color-secondary);
+    color: var(--color-light);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+footer img.logo-fixa {
+    width: 70px;   /* ajuste o tamanho como quiser */
+    height: auto;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+/* vamos fazer o esquema dos select escondido agora */
+#turno_matutino, #turno_vespertino{
+    display: none;
+}

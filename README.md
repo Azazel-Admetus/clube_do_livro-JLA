@@ -1,6 +1,6 @@
 # Clube do Livro - JLA
 
-Este repositório contém o código-fonte da plataforma web **Narrify - JLA**, desenvolvida com o objetivo de fomentar a leitura e o compartilhamento de resenhas literárias entre os alunos da instituição JLA. O projeto oferece um ambiente virtual onde os participantes podem acessar, cadastrar e consultar resenhas de livros, promovendo o engajamento com a literatura.
+Este repositório contém o código-fonte da plataforma web **Narrify - JLA**, desenvolvida com o objetivo de fomentar a leitura e o compartilhamento de resenhas literárias entre os alunos da instituição educacional Joaquim de Lima Avelino. O projeto oferece um ambiente virtual onde os participantes podem acessar, cadastrar e consultar resenhas de livros, promovendo o engajamento com a literatura.
 
 ## 1. Objetivo
 

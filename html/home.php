@@ -46,6 +46,13 @@ if($stmt->execute()){
                 </ul>
             </nav>
         </header>
+        <section id="announcement">
+            <div class="announcement-box">
+                <h2>📚 Inscrições Abertas para o Clube do Livro – Narrify!</h2>
+                <p>Participe da comunidade literária e faça parte dessa nova jornada.</p>
+                <a class="btn-inscricao" href="html/inscricao.html">Quero me inscrever</a>
+            </div>
+        </section>
         <section class="apresentacao">
             <h1>Bem-vindo ao Clube Literário Narrify - Versos e Prosa</h1>
             <p>Leia, compartilhe e descubra novas histórias com a nossa comunidade literária.</p>
@@ -95,6 +102,8 @@ if($stmt->execute()){
             alert("Seja bem-vindo(a)!")
         }else if(error === "verificacao_true"){
             alert('Verificação concluída. Seja bem-vindo!')
+        }else if(error == "concluida"){
+            alert("Inscrição feita. Retornaremos em até 14 dias com a resposta. Enquanto isso, aproveite os recursos de nosso site")
         }
         // pega a div resenha class para fazer o esquema do slide
         const resenhas = document.querySelectorAll('.resenha-card');
