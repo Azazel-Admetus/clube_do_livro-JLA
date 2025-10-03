@@ -1,5 +1,6 @@
 <?php
-require "conn.php"; //arquivo de conexão do banco de dados
+require "conn.php";
+require "error_log.php"; //arquivo de conexão do banco de dados
 require "../vendor/autoload.php"; //caminho do vendor para utilizar a biblioteca PHPMailer
 require "enviarCodigo.php"; //arquivo onde está a função que utiliza essa biblioteca
 session_start(); //inicia a sessão
