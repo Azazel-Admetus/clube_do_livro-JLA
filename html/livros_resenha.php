@@ -11,7 +11,7 @@ $stmt->bindValue(':id', $user_id);
 if($stmt->execute()){
     $user = $stmt->fetch(PDO::FETCH_ASSOC); //pega o valor do banco de dados
     if($user && $user['tipo_usuario'] != 'admin') { //verifica se é administrador
-        header('Location:home.html?user=nao_autorizado'); //redireciona com parâmetro para tratamento de erro
+        header('Location:home.php?user=nao_autorizado'); //redireciona com parâmetro para tratamento de erro
         exit();
     }
 }else{

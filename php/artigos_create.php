@@ -51,18 +51,18 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                         ":tag_id" => $tagId
                     ]);
                 }
-                header('Location:../html/artigos_create.html?insert=true');
+                header('Location:../html/artigos_create.php?insert=true');
                 exit();
             } else {
-                header('Location: ../html/artigos_create.html?error=error');
+                header('Location: ../html/artigos_create.php?error=error');
                 exit();
             }
         } catch (PDOException $e) {
-            header('Location:../html/artigos_create.html?error=insertArtigo');
+            header('Location:../html/artigos_create.php?error=insertArtigo');
             exit();
         }
     } else {
-        header('Location:../html/artigos_create.html?error=empty');
+        header('Location:../html/artigos_create.php?error=empty');
         exit();
     }
 }
