@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+:root {
+    --fontemain: 'League Spartan', sans-serif;
+    --fontesecond: 'Playfair Display', serif;
+    --color-primary: #e8d8c4;
+    --color-secondary: #1c3a57;
+    --color-terceira: #dcccb3;
+    --color-quarta: #e0e0e0;
+    --preto: #000000;
+    --branco: #ffffff;
+    --azul-escuro: #002147;
+    --azul-claro: #004080;
+}
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--fontemain);
+    background: var(--color-primary);
+    color: var(--azul-escuro);
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background: var(--color-secondary);
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+header img {
+    max-width: 180px;
+}
+.link {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 35px;
+    text-align: center;
+}
+.link:hover{
+    color: var(--color-terceira);
+}
+
+/* Info inicial */
+.info {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--branco);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.info h1 {
+    font-family: var(--fontesecond);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--azul-escuro);
+}
+.info p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    color: var(--preto);
+}
+
+/* Formulário */
+.form {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--branco);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--azul-claro);
+}
+.form input,
+.form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid var(--color-quarta);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--fontemain);
+    transition: border 0.2s;
+}
+.form input:focus,
+.form textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 4px var(--color-secondary);
+}
+
+/* Botão */
+.form footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form footer button {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background: var(--color-secondary);
+    color: var(--branco);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.form footer button:hover {
+    background: var(--azul-claro);
+}
+/* estilizando a logo JLA */
+.logo-jla {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.85;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.logo-jla:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    .info, .form {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    .info h1 {
+        font-size: 2rem;
+    }
+    .form h2 {
+        font-size: 1.5rem;
+    }
+}

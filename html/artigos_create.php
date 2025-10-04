@@ -22,11 +22,13 @@ if($userID == null){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/artigos_create.css">
     <title>Narrify - Versos e Prosa</title>
 </head>
 <body>
     <header>
-        <img src="../static/img/logo.png" alt="Logo do site Narrify - Versos e Prosa">
+        <img src="../img/logo-secundária-removebg.png" alt="Logo do site Narrify - Versos e Prosa">
+        <a href="home.php" class="link">Início</a>
     </header>
     <form action="../php/artigos_create.php" method="POST">
         <div class="info">
@@ -36,7 +38,6 @@ if($userID == null){
             <p>Após enviar o seu artigo, ele passará por um processo de análise. Em até 7 dias úteis você receberá um email avisando se foi aprovada ou se carece de mais aprimorações.</p>
         </div>
         <div class="form">
-            <h2>Crie um artigo</h2>
             <label for="titulo">Título</label>
             <input type="text" id="titulo" name="titulo" required placeholder="Defina o Título do artigo.">
             <label for="descricao">Descrição</label>
@@ -45,8 +46,13 @@ if($userID == null){
             <input type="text" id="tags" name="tags" required placeholder="Adicionei tags, ex.: romance, fantasia, escolar">
             <label for="conteudo">Conteúdo</label>
             <textarea id="conteudo" name="conteudo" rows="30" required placeholder="Defina o conteúdo do artigo. Se atente em fazê-lo de forma completa, de preferência em uma linguagem mais culta."></textarea>
-            <button type="submit">Publicar</button>
+            <footer>
+                <button type="submit">Publicar</button>
+            </footer>
         </div>
     </form>
+    <a href="https://www.escolajoaquimdelima.com.br/">
+        <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino" class="logo-jla">
+    </a>
 </body>
 </html>
