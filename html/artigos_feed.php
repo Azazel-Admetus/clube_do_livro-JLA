@@ -1,7 +1,8 @@
 <?php
 require "../php/conn.php";
-
-$stmt = $conn->prepare("SELECT id, titulo, descricao FROM artigos ORDER BY criado_em DESC ");
+$status = "concluido";
+$stmt = $conn->prepare("SELECT id, titulo, descricao FROM artigos WHERE status = :status ORDER BY criado_em DESC ");
+$stmt->bindParam(":status", $status);
 $stmt->execute();
 $artigos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
