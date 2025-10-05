@@ -1,4 +1,5 @@
 <?php
+require "error_log.php";
 require "conn.php";
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // vamos pegar as variáveis

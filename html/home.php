@@ -50,7 +50,7 @@ if($stmt->execute()){
             <div class="announcement-box">
                 <h2>📚 Inscrições Abertas para o Clube do Livro – Narrify!</h2>
                 <p>Participe da comunidade literária e faça parte dessa nova jornada.</p>
-                <a class="btn-inscricao" href="html/inscricao.html">Quero me inscrever</a>
+                <a class="btn-inscricao" href="inscricao.html">Quero me inscrever</a>
             </div>
         </section>
         <section class="apresentacao">
