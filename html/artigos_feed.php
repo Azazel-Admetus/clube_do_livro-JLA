@@ -1,8 +1,29 @@
 <?php
 require "../php/conn.php";
+require "../php/error_log.php";
 $status = "concluido";
-$stmt = $conn->prepare("SELECT id, titulo, descricao FROM artigos WHERE status = :status ORDER BY criado_em DESC ");
-$stmt->bindParam(":status", $status);
+$pesquisa = isset($_GET['q']) ?  trim($_GET['q']) : null;
+if($pesquisa){
+    $stmt = $conn->prepare("
+        SELECT DISTINCT a.id, a.titulo, a.descricao
+        FROM artigos a 
+        INNER JOIN artigo_tags at ON a.id = at.artigo_id
+        INNER JOIN tags t ON t.id = at.tag_id
+        WHERE a.status = :status
+        AND t.nome LIKE :pesquisa
+        ORDER BY a.criado_em DESC
+    ");
+    $stmt->bindValue(":status", $status);
+    $stmt->bindValue(":pesquisa", "%$pesquisa%");
+}else{
+    $stmt = $conn->prepare("
+        SELECT id, titulo, descricao 
+        FROM artigos
+        WHERE status = :status
+        ORDER BY criado_em DESC
+    ");
+    $stmt->bindValue(":status", $status);
+}
 $stmt->execute();
 $artigos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -36,7 +57,7 @@ foreach ($artigos as $artigo){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/artigos_feed.css">
+    <link rel="stylesheet" href="../css/artigos_feed.css?v=1.0">
     <title>Explore artigos</title>
 </head>
 <body>
@@ -45,7 +66,11 @@ foreach ($artigos as $artigo){
             <img src="../img/logo-secundária-removebg.png" alt="Logo do clube do livro narrify">
         </a>
     </header>
-   <h1>Explore artigos criados pela comunidade</h1> 
+   <h1>Explore artigos criados pela comunidade</h1>
+   <form method="GET" action="">
+        <input type="search" name="q" placeholder="Pesquisar por tags">
+        <button type="submit"></button> 
+    </form>
     <?= $feedHTML ?>
     <a href="https://www.escolajoaquimdelima.com.br/">
         <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino" class="logo-jla">
