@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="p-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro dos livros recomendados</title>
+</head>
+<body>
+    <header>
+        <a href="home.php">
+            <img src="../img/logo-secundária-removebg.png" alt="Logo do clube do livro">
+        </a>
+    </header>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <h1>Cadastre os livros recomendados</h1>
+        <label for="name_livro">Nome do Livro</label>
+        <input type="text" name="nome_livro" id="nome_livro" required placeholder="Digite o nome do livro a ser cadastrado">
+        <label for="capa_livro">Faça o upload da capa do livro</label>
+        <input type="file" name="capa_livro" id="capa_livro" accept=".jpg, .jpeg, .png" required>
+        <button type="submit">Salvar</button>
+    </form> 
+    
+</body>
+</html>
