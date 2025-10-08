@@ -1,3 +1,22 @@
+<?php
+require_once "../php/conn.php";
+session_start();
+$userID = $_SESSION['user_id'];
+if($userID == null){
+    header('Location:login.html');
+    exit();
+}else{
+    //vamos simplesmente buscar no banco de dados e verificar se ele tem permissão para criar esses artigos
+    $stmt = $conn->prepare("SELECT cargo FROM users WHERE id = :id");
+    $stmt->bindParam(":id", $userID);
+    $stmt->execute();
+    $tipo_user = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($tipo_user['cargo'] != "Presidente"){
+        header('Location:home.php?user=nao_autorizado');
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="p-br">
 <head>
