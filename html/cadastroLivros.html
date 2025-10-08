@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastroLivros.css">
     <title>Cadastro dos livros recomendados</title>
 </head>
 <body>
     <header>
         <a href="home.php">
-            <img src="../img/logo-secundária-removebg.png" alt="Logo do clube do livro">
+            <img src="../img/logo-principal-slogan-transparente.png" alt="Logo do clube do livro">
         </a>
     </header>
     <form action="" method="POST" enctype="multipart/form-data">
@@ -17,8 +18,12 @@
         <input type="text" name="nome_livro" id="nome_livro" required placeholder="Digite o nome do livro a ser cadastrado">
         <label for="capa_livro">Faça o upload da capa do livro</label>
         <input type="file" name="capa_livro" id="capa_livro" accept=".jpg, .jpeg, .png" required>
+        <label for="tags">Tags</label>
+        <input type="text" id="tags" name="tags" required placeholder="Exemplos: romance, comédia, ação, ficção...">
         <button type="submit">Salvar</button>
     </form> 
-    
+    <a href="https://www.escolajoaquimdelima.com.br/">
+        <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino" class="logo-jla">
+    </a>
 </body>
 </html>
