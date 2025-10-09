@@ -15,6 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $user['nome'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['tipo_usuario'] = $user['tipo_usuario'];
+            $_SESSION['cargo'] = $user['cargo'];
             header("Location:redirecionador.php?fluxo=login");
             exit();
         } else {
