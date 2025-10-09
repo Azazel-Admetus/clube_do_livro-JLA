@@ -23,7 +23,7 @@ if($stmt->execute()){
     <meta name="language" content="pt-BR">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/home.css?v=1.1">
     <title>Narrify - Versos e Prosa</title>
 </head>
 <body>
@@ -82,6 +82,31 @@ if($stmt->execute()){
                 </div>
             </div>
         </section>
+        <?php 
+            $tipo = $_SESSION['tipo_usuario'] ?? '';
+            $cargo = $_SESSION['cargo'] ?? '';
+        ?>
+
+            <!-- Seção Administrativa -->
+        <?php if($cargo === 'Presidente' || $tipo === 'admin'): ?>
+            <section class="area-admin">
+                <h2>Área Administrativa</h2>
+                <p>Gerencie o conteúdo do clube literário:</p>
+                <div class="admin-links">
+            
+                    <?php if($cargo === 'Presidente'): ?>
+                        <a href="artigos_create.php" class="btn-admin">✍️ Criar Artigo</a>
+                        <a href="cadastroLivros.php" class="btn-admin">📖 Cadastrar Livro Recomendado</a>
+                    <?php endif; ?>
+                    
+                    <?php if($tipo === 'admin'): ?>
+                        <a href="livros_resenha.php" class="btn-admin">📝 Publicar Resenha</a>
+                    <?php endif; ?>
+                    
+                </div>
+            </section>
+        <?php endif; ?>
+
         <section>
             <h2>Quer participar?</h2>
             <p>Atualmente, apenas membros do clube podem publicar resenhas. Fale com um administrador para saber como entrar!</p>

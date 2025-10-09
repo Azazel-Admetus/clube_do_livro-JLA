@@ -255,6 +255,63 @@ section:last-of-type h2 {
     transform: scale(1.05);
 }
 
+/* ---------- ÁREA ADMINISTRATIVA ---------- */
+.area-admin {
+    background-color: var(--color-quarta);
+    border: 2px solid var(--color-terceira);
+    border-radius: 14px;
+    padding: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: fadeIn 0.6s ease;
+}
+
+.area-admin h2 {
+    font-family: var(--fontesecond);
+    color: var(--azul-escuro);
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.area-admin p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.admin-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.btn-admin {
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    padding: 0.9rem 1.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-admin:hover {
+    background-color: var(--azul-escuro);
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .btn-admin {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
 /* animação de entrada */
 @keyframes fadeInDown {
     from {
