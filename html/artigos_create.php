@@ -54,5 +54,19 @@ if($userID == null){
     <a href="https://www.escolajoaquimdelima.com.br/">
         <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino" class="logo-jla">
     </a>
+    <script>
+        //variáveis para tratamento de erros
+        const urlParams = new URLSearchParams(window.location.search);
+        const insert = urlParams.get('insert');
+        const error = urlParams.get('error');
+        const erros = ['error', 'insertArtigo', 'empty'];
+
+        // faz a verificação do valor da variável
+        if (insert == 'true') {
+            alert('Artigos criados com sucesso.');
+        }else if (erros.includes(error)){
+            alert(`Ocorreu um erro: ${erro}. Tente novamente`);
+        }
+    </script>
 </body>
 </html>
