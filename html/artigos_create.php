@@ -22,6 +22,14 @@ if($userID == null){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Crie artigos">
+    <meta name="keywords" content="artigos, criar artigos, crie artigos, artigos literários, informação">
+    <meta name="author" content="Site criado por: Azazel Admetus">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/artigos_create.css">
     <title>Narrify - Versos e Prosa</title>
 </head>

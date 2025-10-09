@@ -57,6 +57,14 @@ foreach ($artigos as $artigo){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Explore os artigos criados pela comunidade">
+    <meta name="keywords" content="feed dos artigos, feed, artigos, explorar, explore, explorar artigos, explore artigos">
+    <meta name="author" content="Site criado por: Azazel Admetus">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/artigos_feed.css?v=1.0">
     <title>Explore artigos</title>
 </head>

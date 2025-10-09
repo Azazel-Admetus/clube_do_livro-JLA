@@ -22,6 +22,14 @@ if($userID == null){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Cadastrar livros recomendados">
+    <meta name="keywords" content="livros, cadastro de livros, cadastro, cadastrar livros, livros recomendados, recomendados">
+    <meta name="author" content="Site criado por: Azazel Admetus">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/cadastroLivros.css">
     <title>Cadastro dos livros recomendados</title>
 </head>
