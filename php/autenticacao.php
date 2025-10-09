@@ -5,7 +5,7 @@ require "../vendor/autoload.php"; //caminho do vendor para utilizar a biblioteca
 require "enviarCodigo.php"; //arquivo onde está a função que utiliza essa biblioteca
 session_start(); //inicia a sessão
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL); //pega o email e sanitiza
+    $email = strtolower(filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL));
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){ //verifica se é válido o endereço de email
         header('Location:../html/autenticacao.html?error=invalid_email');
         exit;
@@ -20,9 +20,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         exit;
     }
     $_SESSION['email_autenticacao'] = $email; //pega o email armazenado na sessão
-    $codigo = rand(100000, 999999); //gera um código de 6 dígitos
-    $stmt = $conn->prepare("UPDATE users SET codigo_verificacao = :codigo, verificado = 0 WHERE email = :email "); //insere no banco de dados esse código para verificação posterior
+    $codigo = random_int(100000, 999999); //gera um código de 6 dígitos
+    $expira = date('Y-m-d H:i:s', time() + 600); // expira em 10 minutos
+    
+    $stmt = $conn->prepare("
+        UPDATE users 
+        SET codigo_verificacao = :codigo, codigo_expira = :expira, verificado = 0 
+        WHERE email = :email 
+        ");
     $stmt->bindValue(':codigo', $codigo);
+    $stmt->bindValue(':expira', $expira);
     $stmt->bindValue(':email', $email);
     if($stmt->execute()){
         if(enviarCodigo($email, $codigo)){ //usa a função para enviar código

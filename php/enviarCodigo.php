@@ -25,13 +25,13 @@ function enviarCodigo($email, $codigo){
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
         //habilitar somente em ambiente de desenvolvimento. Deve-se deixar inabilitado em ambiente de produção 
-        // $mail->SMTPOptions = array(
-        //     'ssl' => array(
-        //     'verify_peer' => false,
-        //     'verify_peer_name' => false,
-        //     'allow_self_signed' => true
-        //     )
-        // );
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            )
+        );
 
         $mail->setFrom($_ENV['EMAIL_USERNAME'], $_ENV['EMAIL_FROM_NAME']);
         $mail->addAddress($email);
