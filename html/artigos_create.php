@@ -22,6 +22,14 @@ if($userID == null){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Crie artigos">
+    <meta name="keywords" content="artigos, criar artigos, crie artigos, artigos literários, informação">
+    <meta name="author" content="Site criado por: Azazel Admetus">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../img/logo_favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/artigos_create.css">
     <title>Narrify - Versos e Prosa</title>
 </head>
@@ -54,5 +62,19 @@ if($userID == null){
     <a href="https://www.escolajoaquimdelima.com.br/">
         <img src="../img/Logo-JLA.jpg" alt="Logo da Escola Joaquim de Lima Avelino" class="logo-jla">
     </a>
+    <script>
+        //variáveis para tratamento de erros
+        const urlParams = new URLSearchParams(window.location.search);
+        const insert = urlParams.get('insert');
+        const error = urlParams.get('error');
+        const erros = ['error', 'insertArtigo', 'empty'];
+
+        // faz a verificação do valor da variável
+        if (insert == 'true') {
+            alert('Artigos criados com sucesso.');
+        }else if (erros.includes(error)){
+            alert(`Ocorreu um erro: ${erro}. Tente novamente`);
+        }
+    </script>
 </body>
 </html>
